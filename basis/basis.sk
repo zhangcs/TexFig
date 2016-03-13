@@ -1,0 +1,32 @@
+def O (0,0,0) % origo
+def J [0,1,0] % rotation axis
+def dx 2.0
+def dy 2.5
+def dz dx
+
+def axes {
+    % draw the axes
+    def ax (dx,0,0)
+    def ay (0,dy,0)
+    def az (0,0,dz)
+    % annote axes
+    special |\path #1 node[left] {$z$}
+                   #2 node[below] {$x$}
+                   #3 node[above] {$y$};|(az)(ax)(ay)
+}
+
+def pyramid {
+    def p0 (0,2)
+    def p1 (1.5,0)
+    def N 6
+    def seg_rot rotate(360 / N, [J])
+    % draw a vertical line
+    line[draw=black,line style=dashed,line width=.8pt](O)(p0)
+    % draw the pyramid by rotating a line about the J axis
+    sweep[fill=red!20]{ N<>, [[seg_rot]] } 
+	line[cull=false, fill=blue!20, fill opacity=0.5](p0)(p1)
+}
+
+put { view((8,4,2)) } {pyramid}
+
+global { language tikz }

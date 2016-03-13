@@ -1,0 +1,33 @@
+\documentclass[a4paper]{article}
+
+\usepackage{pst-node}
+\usepackage{pst-coil}
+
+\pagestyle{empty}
+
+\psset{subgriddiv=0}
+
+\begin{document}
+
+\SpecialCoor
+\psset{griddots=5,subgriddiv=0,gridlabels=0pt}
+% (Nearly) original code
+\begin{pspicture}(4,4)
+
+% spring part
+\qdisk(4,0){4pt}
+\pscoil[coilarm=3mm,coilwidth=3mm,linecolor=red]{-}(4,3)(4,0)
+\rput(4,-0.5){$m$}
+\rput(3.5,1.5){$H$}
+
+% top wall
+\pspolygon[linecolor=white,fillstyle=vlines](3,3)(5,3)(5,3.3)(3,3.3)
+\psline[linewidth=2pt](3,3)(5,3)
+
+% deform
+\psline{|<->|}(4.4,0)(4.4,1.2)
+\rput(4.7,0.6){$x$}
+
+\end{pspicture}
+
+\end{document}

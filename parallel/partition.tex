@@ -1,0 +1,67 @@
+\documentclass[a4paper]{article}
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\usepackage[usenames]{pstricks}
+\usepackage{pst-coil}
+\usepackage{pst-node}
+\usepackage{xcolor}
+
+\newcommand{\recv}{\psCoil[coilaspect=0,coilheight=0.9,coilwidth=0.3,linewidth=1.5pt,linecolor=Goldenrod]{0}{1440}}
+\newcommand{\send}{\psCoil[coilaspect=0,coilheight=0.9,coilwidth=0.3,linewidth=1.5pt,linecolor=Red]{0}{1440}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\psset{griddots=5,subgriddiv=0,gridlabels=0pt}
+
+\begin{pspicture}(-2,-3)(13,3)
+
+% coordinates
+%\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-6,-4)(14,4)
+
+\psframe*[linecolor=yellow](-2.3,0)(0.3,2)
+\rput(-1,2.5){\large $D^\delta_2$}
+
+% domain
+\psline[linewidth=1.5pt]{-}(-4,2)(4,2)
+\psline[linewidth=1.5pt]{-}(-4,0)(4,0)
+\psline[linewidth=1.5pt]{-}(4,2)(4,0)
+\psline[linewidth=1.5pt]{-}(-4,2)(-4,0)
+\rput(0,-0.5){\Large$\Omega$}
+
+% partition
+\rput(-3,1){$D_1$}
+\psline[linewidth=1.5pt]{-}(-2,2)(-2,0)
+\rput(-1,1){$D_2$}
+\psline[linewidth=1.5pt]{-}(0,2)(0,0)
+\rput(1,1){$D_3$}
+\psline[linewidth=1.5pt]{-}(2,2)(2,0)
+\rput(3,1){$D_4$}
+
+% table
+\psline[linewidth=1pt]{-}(5,3)(11,3)
+\rput(6,3.3){Processor}
+\psline[linewidth=1pt]{-}(7.25,3.5)(7.25,-1)
+\rput(8,3.3){Data}
+\psline[linewidth=1pt]{-}(8.75,3.5)(8.75,-1)
+\rput(10,3.3){Redundancy}
+
+\rput(6,2.5){$U_1$}
+\rput(6,1.5){$U_2$}
+\rput(6,0.5){$U_3$}
+\rput(6,-.5){$U_4$}
+
+\rput(8,2.5){$D^\delta_1$}
+\rput(8,1.5){$D^\delta_2$}
+\rput(8,0.5){$D^\delta_3$}
+\rput(8,-.5){$D^\delta_4$}
+
+\rput(10,2.5){$D^\delta_2$}
+\rput(10,1.5){$D^\delta_1$}
+\rput(10,0.5){$D^\delta_4$}
+\rput(10,-.5){$D^\delta_3$}
+
+\end{pspicture}
+
+\end{document}

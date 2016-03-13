@@ -1,0 +1,44 @@
+\documentclass[a4paper]{article}
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\usepackage[usenames]{pstricks}
+\usepackage{pst-coil}
+\usepackage{pst-node}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\newcommand{\recv}{\psCoil[coilaspect=0,coilheight=0.9,coilwidth=0.3,linewidth=1.5pt,linecolor=Goldenrod]{0}{1440}}
+\newcommand{\send}{\psCoil[coilaspect=0,coilheight=0.9,coilwidth=0.3,linewidth=1.5pt,linecolor=Red]{0}{1440}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\psset{griddots=5,subgriddiv=0,gridlabels=0pt}
+
+\begin{pspicture}(-2,-3)(13,3)
+
+% coordinates
+%\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-6,-4)(14,4)
+
+\psframe*[linecolor=yellow](-2.3,0)(0.3,2)
+\rput(-1,2.4){$D^\delta_2$}
+
+% domain
+\psline[linewidth=1.5pt]{-}(-4,2)(4,2)
+\psline[linewidth=1.5pt]{-}(-4,0)(4,0)
+\psline[linewidth=1.5pt]{-}(4,2)(4,0)
+\psline[linewidth=1.5pt]{-}(-4,2)(-4,0)
+
+% partition
+\rput(-3,1){$D_1$}\rput(-3,-0.5){$P_1,P_2$}
+\psline[linewidth=1.5pt]{-}(-2,2)(-2,0)
+\rput(-1,1){$D_2$}\rput(-1,-0.5){$P_2,P_1$}
+\psline[linewidth=1.5pt]{-}(0,2)(0,0)
+\rput(1,1){$D_3$}\rput(1,-0.5){$P_3,P_4$}
+\psline[linewidth=1.5pt]{-}(2,2)(2,0)
+\rput(3,1){$D_4$}\rput(3,-0.5){$P_4,P_3$}
+
+\end{pspicture}
+
+\end{document}

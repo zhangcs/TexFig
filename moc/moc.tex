@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+    
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-1.5,-0.5)(2.5,2.5)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% X-coordinate
+    \psline[linewidth=1.5pt]{->}(-1.35,0)(1.35,0)
+    \rput(1.6,0){$t_{n-1}$}
+    \psline(-1.05,0)(-1.05,0.075)
+    \psline(-0.35,0)(-0.35,0.075)
+    \psline(0.35,0)(0.35,0.075)
+    \psline(1.05,0)(1.05,0.075)
+
+    \psline[linewidth=1.5pt]{->}(-1.35,1.)(1.35,1.)
+    \rput(1.6,1.){$t_{n}$}
+    \psline(-1.05,1.)(-1.05,1.075)
+    \psline(-0.35,1.)(-0.35,1.075)
+    \psline(0.35,1.)(0.35,1.075)
+    \psline(1.05,1.)(1.05,1.075)
+
+% functions
+    \psdot[dotstyle=o,fillcolor=red,dotsize=6pt](-0.2,1.)
+    \psdot[dotstyle=o,fillcolor=red,dotsize=6pt](0.2,1.)
+
+    \psdot[dotstyle=o,fillcolor=red,dotsize=6pt](-0.5,0)
+    \psdot[dotstyle=o,fillcolor=red,dotsize=6pt](-0.1,0)
+		
+    \pscurve[showpoints=false]{->}(-0.2,0.98)(-0.4,0.75)(-0.5,0.02)
+    \pscurve[showpoints=false]{->}(0.2,0.98)(-0.0,0.75)(-0.1,0.02)
+    
+    \rput(1.2,0.5){$\frac{dx^n(t)}{dt} = b(x^n(t),t), \; x^n(t_n) = X$}
+		       
+    \end{pspicture}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+    
+\begin{pspicture}*(-5.5,-3)(5.5,3)
+%\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% conservative
+\psset{xunit=1.2pt} 
+\psplot[plotpoints=200]{0}{90}{15 x mul sin} 
+\psline{->}(0,-2)(0,2) 
+\psline{->}(0,0)(100,0)
+\psline[linestyle=dashed]{-}(0,1)(100,1)
+\psline[linestyle=dashed]{-}(0,-1)(100,-1)
+
+\rput(6,-0.3){$O$}		       
+\rput(8,2){$E$}		       
+\rput(100,-0.2){$t$}		       
+
+\end{pspicture}
+
+\end{figure}
+
+\end{document}

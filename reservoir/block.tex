@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=2cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-3.5,-1)(3.5,5)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% coord
+\psline[linewidth=2pt]{->}(-3,3.5)(-2.5,4) 
+\rput(-1.9,3.5){$x$}
+\psline[linewidth=2pt]{->}(-3,3.5)(-2,3.5) 
+\rput(-2.4,4.1){$y$}
+\psline[linewidth=2pt]{->}(-3,3.5)(-3,2.6) 
+\rput(-3,2.5){$z$}
+
+% grid row
+    \psline[linewidth=1.5pt]{-}(-3,0)(1.5,0)
+    \psline[linewidth=1.5pt]{-}(-3,.5)(1.5,.5)
+    \psline[linewidth=1.5pt]{-}(-3,1)(1.5,1)
+    \psline[linewidth=1.5pt]{-}(-3,1.5)(1.5,1.5)
+    \psline[linewidth=1.5pt]{-}(-1.5,3)(3,3)
+    \psline[linewidth=1.5pt]{-}(-2.25,2.25)(2.25,2.25)
+
+% grid column
+    \psline[linewidth=1.5pt]{-}(-3,1.5)(-3,0)
+    \psline[linewidth=1.5pt]{-}(-0.75,1.5)(-0.75,0)
+    \psline[linewidth=1.5pt]{-}(1.5,1.5)(1.5,0)
+    \psline[linewidth=1.5pt]{-}(3,3)(3,1.5)
+    \psline[linewidth=1.5pt]{-}(2.25,2.25)(2.25,0.75)
+
+% grid diag
+    \psline[linewidth=1.5pt]{-}(-3,1.5)(-1.5,3)
+    \psline[linewidth=1.5pt]{-}(-.75,1.5)(.75,3)
+    \psline[linewidth=1.5pt]{-}(1.5,1.5)(3,3)
+    \psline[linewidth=1.5pt]{-}(1.5,0)(3,1.5)
+    \psline[linewidth=1.5pt]{-}(1.5,0.5)(3,2)
+    \psline[linewidth=1.5pt]{-}(1.5,1)(3,2.5)
+
+% text
+    \rput(-0.75,2.65){$\kappa_x = \kappa_y = 100$}	
+    \rput(1.5,2.65){$\kappa_x = \kappa_y = 10$}	
+    \rput(-1.5,1.9){$\kappa_x = \kappa_y = 10$}	
+    \rput(0.75,1.9){$\kappa_x = \kappa_y = 100$}	
+
+    \rput(1,1.3){$\kappa_z = 5$}	
+    \rput(1,0.8){$\kappa_z = 2$}	
+    \rput(1.05,0.3){$\kappa_z = 10$}	
+
+    \end{pspicture}
+\end{figure}
+
+
+\end{document}

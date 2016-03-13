@@ -1,0 +1,183 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+    
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-3,-6)(3,2)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% grid
+    \psline[linewidth=1.5pt]{-}(-1.5,0)(1.5,0)
+    \psline[linewidth=1.5pt]{-}(-1.5,0.5)(1.5,0.5)
+    \psline[linewidth=1.5pt]{-}(-1.5,1)(1.5,1)
+    \psline[linewidth=1.5pt]{-}(-1.5,1.5)(1.5,1.5)
+
+    \psline[linewidth=1.5pt]{-}(-1.5,1.5)(-1.5,0)
+    \psline[linewidth=1.5pt]{-}(-0.5,1.5)(-0.5,0)
+    \psline[linewidth=1.5pt]{-}(0.5,1.5)(0.5,0)
+    \psline[linewidth=1.5pt]{-}(1.5,1.5)(1.5,0)
+
+    \rput(-1.3,0.3){1}	
+    \rput(-0.3,0.3){2}	
+    \rput(0.7,0.3){3}	
+
+    \rput(-1.3,0.8){4}	
+    \rput(-0.3,0.8){5}	
+    \rput(0.7,0.8){6}	
+   
+    \rput(-1.3,1.3){7}	
+    \rput(-0.3,1.3){8}	
+    \rput(0.7,1.3){9}	
+
+% well    
+    \psline[doubleline=true,linecolor=red,linewidth=1.2pt](0,2)(0,1)
+    \psline[doubleline=true,linecolor=red,linewidth=1.2pt,linestyle=dashed](0,1.2)(0,0)
+      		       
+% matrix original
+   \psdot[dotstyle=square*,dotsize=0.15](-2.5,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.3,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.5,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.3,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.1,-1.3)   
+   \psdot[dotstyle=square*,dotsize=0.15](-2.3,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.1,-1.5)
+
+   \psdot[dotstyle=square*,dotsize=0.15](-1.9,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.7,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.9,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.5,-1.5)
+
+   \psdot[dotstyle=square*,dotsize=0.15](-2.5,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.1,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.3,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-2.1,-2.1)
+    		       
+   \psdot[dotstyle=square*,dotsize=0.15](-1.9,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.7,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.9,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.7,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.5,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.7,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.5,-2.1)
+
+   \psdot[dotstyle=square*,dotsize=0.15](-1.3,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.1,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.9,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.3,-2.1)
+
+   \psdot[dotstyle=square*,dotsize=0.15](-1.9,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.5,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.7,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.5,-2.7)
+
+   \psdot[dotstyle=square*,dotsize=0.15](-1.3,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.1,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.9,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.3,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.1,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-1.1,-2.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.9,-2.7)
+
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](-0.7,-2.9)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](-2.3,-2.9)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](-1.7,-2.9)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](-0.7,-1.3)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](-0.7,-1.9)
+
+    \psline[linecolor=red,linewidth=1.pt](-2.6,-1)(-2.6,-3)
+    \psline[linecolor=red,linewidth=1.pt](-2,-1)(-2,-3)
+    \psline[linecolor=red,linewidth=1.pt](-1.4,-1)(-1.4,-3)
+    \psline[linecolor=red,linewidth=1.pt](-0.8,-1)(-0.8,-3)
+    \psline[linecolor=red,linewidth=1.pt](-0.6,-1)(-0.6,-3)
+
+    \psline[linecolor=red,linewidth=1.pt](-2.6,-1)(-0.6,-1)
+    \psline[linecolor=red,linewidth=1.pt](-2.6,-1.6)(-0.6,-1.6)
+    \psline[linecolor=red,linewidth=1.pt](-2.6,-2.2)(-0.6,-2.2)
+    \psline[linecolor=red,linewidth=1.pt](-2.6,-2.8)(-0.6,-2.8)
+    \psline[linecolor=red,linewidth=1.pt](-2.6,-3)(-0.6,-3)
+
+    \psline[doubleline=true,linewidth=1.5pt]{->}(-0.45,-2)(0.3,-2)
+
+% matrix flipped
+   \psdot[dotstyle=square*,dotsize=0.15](.5,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](.7,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](.5,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](.7,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](1.9,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](1.9,-1.3)
+      
+   \psdot[dotstyle=square*,dotsize=0.15](.9,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](0.9,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](1.1,-1.3)
+
+   \psdot[dotstyle=square*,dotsize=0.15](.5,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](.7,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](.7,-1.7)
+
+   \psdot[dotstyle=square*,dotsize=0.15](.9,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](1.1,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](.9,-2.7)
+   \psdot[dotstyle=square*,dotsize=0.15](1.1,-2.7)
+   \psdot[dotstyle=square*,dotsize=0.15](2.1,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](2.1,-1.7)
+   
+   \psdot[dotstyle=square*,dotsize=0.15](1.3,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](1.5,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](1.5,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](1.3,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](1.7,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](1.5,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](1.7,-2.3)
+
+   \psdot[dotstyle=square*,dotsize=0.15](1.3,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](1.3,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](1.7,-1.7)
+
+   \psdot[dotstyle=square*,dotsize=0.15](0.9,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](1.1,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](1.1,-2.3)
+
+   \psdot[dotstyle=square*,dotsize=0.15](1.5,-2.7)
+   \psdot[dotstyle=square*,dotsize=0.15](2.1,-2.1)
+
+   \psdot[dotstyle=square*,dotsize=0.15](1.9,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](2.1,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](1.9,-2.7)
+   \psdot[dotstyle=square*,dotsize=0.15](2.1,-2.7)
+
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](2.3,-2.9)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](2.1,-2.9)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](1.9,-2.9)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](2.3,-2.5)
+   \psdot[dotstyle=square,dotsize=0.15,fillcolor=gray](2.3,-2.7)
+
+    \psline[linecolor=red,linewidth=1.pt](0.4,-1)(0.4,-3)
+    \psline[linecolor=red,linewidth=1.pt](0.8,-1)(0.8,-3)
+    \psline[linecolor=red,linewidth=1.pt](1.2,-1)(1.2,-3)
+    \psline[linecolor=red,linewidth=1.pt](1.8,-1)(1.8,-3)
+    \psline[linecolor=red,linewidth=1.pt](2.4,-1)(2.4,-3)
+
+    \psline[linecolor=red,linewidth=1.pt](0.4,-1)(2.4,-1)
+    \psline[linecolor=red,linewidth=1.pt](0.4,-1.4)(2.4,-1.4)
+    \psline[linecolor=red,linewidth=1.pt](0.4,-1.8)(2.4,-1.8)
+    \psline[linecolor=red,linewidth=1.pt](0.4,-2.4)(2.4,-2.4)
+    \psline[linecolor=red,linewidth=1.pt](0.4,-3)(2.4,-3)
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}

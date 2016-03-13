@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+    
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-3.5,-0.5)(3.5,2.5)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% original grid
+    \psline[linecolor=black,linewidth=1.pt](-3,0)(-1,0)
+    \psline[linecolor=black,linewidth=1.pt](-3,0)(-3,2)
+    \psline[linecolor=black,linewidth=1.pt](-3,2)(-1,2)
+    \psline[linecolor=black,linewidth=1.pt](-1,2)(-1,0)
+    \psline[linecolor=black,linewidth=1.pt](-2,2)(-2,0)
+    \psline[linecolor=black,linewidth=1.pt](-3,1)(-1,1)
+    \psline[linecolor=black,linewidth=1.pt](-3,1)(-2,0)
+    \psline[linecolor=black,linewidth=1.pt](-3,2)(-1,0)
+    \psline[linecolor=black,linewidth=1.pt](-2,2)(-1,1)
+
+    \psline[linecolor=blue,linewidth=1.8pt](-2,2)(-1,1)
+    \psline[linecolor=blue,linewidth=1.8pt](-2,1)(-1,1)
+    \psline[linecolor=blue,linewidth=1.8pt](-2,2)(-2,1)
+
+    \psline[doubleline=true,linewidth=1.5pt]{->}(-0.5,1)(0.5,1)
+
+% shifted
+
+    \psline[linecolor=black,linewidth=1.pt](3,0)(1,0)
+    \psline[linecolor=black,linewidth=1.pt](3,0)(3,2)
+    \psline[linecolor=black,linewidth=1.pt](3,2)(1,2)
+    \psline[linecolor=black,linewidth=1.pt](1,2)(1,0)
+    \psline[linecolor=black,linewidth=1.pt](2,2)(2,0)
+    \psline[linecolor=black,linewidth=1.pt](3,1)(1,1)
+    \psline[linecolor=black,linewidth=1.pt](1,1)(2,0)
+    \psline[linecolor=black,linewidth=1.pt](1,2)(3,0)
+    \psline[linecolor=black,linewidth=1.pt](2,2)(3,1)
+
+    \psline[linecolor=blue,linestyle=dashed,linewidth=1.8pt](1.2,1.2)(2.2,0.2)
+    \psline[linecolor=blue,linestyle=dashed,linewidth=1.8pt](1.2,1.2)(1.2,0.2)
+    \psline[linecolor=blue,linestyle=dashed,linewidth=1.8pt](1.2,0.2)(2.2,0.2)
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}

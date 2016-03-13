@@ -1,0 +1,37 @@
+def O (0,0,0) % origo
+def J [0,1,0] % rotation axis
+def dx 2.0
+def dy 2.5
+def dz dx
+
+def p1 (0,0,0)
+def p2 (1,0,0)
+def p3 (1,1,0)
+def p4 (0,1,0)
+
+def p5 (0,0,1)
+def p6 (1,0,1)
+def p7 (1,1,1)
+def p8 (0,1,1)
+
+def axes {
+    % draw the axes
+    def ax (dx,0,0)
+    def ay (0,dy,0)
+    def az (0,0,dz)
+    % annote axes
+    special |\path #1 node[left] {$z$}
+                   #2 node[below] {$x$}
+                   #3 node[above] {$y$};|(az)(ax)(ay)
+}
+
+def cube {
+    polygon(p1)(p2)(p3)(p4)
+    polygon(p5)(p6)(p7)(p8)
+    polygon(p1)(p4)(p8)(p5)
+    polygon(p2)(p3)(p7)(p6)
+}
+
+put { view((8,4,2)) } {cube}
+
+global { language tikz }

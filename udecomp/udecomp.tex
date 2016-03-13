@@ -1,0 +1,59 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{subfigure,graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{pstricks,pst-node}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+\begin{figure}[htp]
+\centering
+    \psset{unit=1.2cm}
+    \begin{pspicture}*(-0.1,-0.5)(10,3)
+    %\psgrid[subgriddiv=2,griddots=10,gridlabels=0.25cm](0,0)(-1,-1)(10,10)
+    
+    \psline(0,0)(6,0)
+    
+    \psdots[dotstyle=triangle*,dotsize=5pt](1,0)(5,0)
+    \psdots[dotstyle=*,dotsize=5pt](3,0)
+    \psdots[dotstyle=|,dotsize=5pt](2,0)(4,0)
+    
+    \put(1,-0.3){$x_1$}
+    \put(3,-0.3){$x_3$}
+    \put(5,-0.3){$x_2$}
+    \put(2,-0.3){$x_5$}
+    \put(4,-0.3){$x_4$}
+
+    \psline[linewidth=2pt](1,2)(2,2.5)(3,1)(4,0.2)(5,2)
+    \psdots[dotsize=6pt](1,2)(2,2.5)(3,1)(4,0.2)(5,2)
+    
+    \psline[linecolor=red,linestyle=dashed,linewidth=2pt](1,2)(3,1)(4,0.15)(5,1.95)
+    \psdots[linecolor=red,dotstyle=triangle,dotsize=4pt](1,2)(3,1)(4,0.2)(5,2)
+        
+    \psline[linecolor=blue,linewidth=1pt](1,2)(3,0.2)(5,0.2)
+    \psdots[linecolor=blue,dotstyle=square,dotsize=4pt](1,2)(3,0.2)(5,0.2)
+
+    \psline[linewidth=2pt](7,2)(8,2)
+    \psdots[dotsize=6pt](7,2)(8,2)
+    \put(8.2,1.95){$u$}
+
+    \psline[linecolor=red,linestyle=dashed,linewidth=2pt](7,1.5)(8,1.5)
+    \psdots[linecolor=red,dotstyle=triangle,dotsize=4pt](7,1.5)(8,1.5)
+    \put(8.2,1.45){$Q_2 u$}
+    
+    \psline[linecolor=blue,linewidth=1pt](7,1)(8,1)
+    \psdots[linecolor=blue,dotstyle=square,dotsize=4pt](7,1)(8,1)
+    \put(8.2,0.95){$Q_1 u$}
+        
+    \end{pspicture}
+\caption[Decomposition of $u$]{Decomposition of $u$.}\label{fig:udecomp}
+\end{figure}
+
+
+\end{document}  
