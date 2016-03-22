@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-0.5,-0.5)(1.5,2)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% line
+    \rput(-0.25,0){$l=0$}
+    \psline[linewidth=1.5pt]{-}(-0.1,0)(1.1,0)
+    \rput(1.34,0){$h_0 = ({1 \over 2})^1$}
+
+% grid
+    \psline[linewidth=1.5pt]{-}(0,0)(0,0.03)
+    \psline[linewidth=1.5pt]{-}(0.5,0)(0.5,0.03)
+    \psline[linewidth=1.5pt]{-}(1,0)(1,0.03)
+
+% line
+    \rput(-0.25,0.25){$l=1$}
+    \psline[linewidth=1.5pt]{-}(-0.1,0.25)(1.1,0.25)
+    \rput(1.34,0.25){$h_1 = ({1 \over 2})^2$}
+
+% grid
+    \psline[linewidth=1.5pt]{-}(0,0.25)(0,0.28)
+    \psline[linewidth=1.5pt]{-}(0.25,0.25)(0.25,0.28)
+    \psline[linewidth=1.5pt]{-}(0.5,0.25)(0.5,0.28)
+    \psline[linewidth=1.5pt]{-}(0.75,0.25)(0.75,0.28)
+    \psline[linewidth=1.5pt]{-}(1,0.25)(1,0.28)
+
+% line
+    \rput(-0.25,0.5){$l=2$}
+    \psline[linewidth=1.5pt]{-}(-0.1,0.5)(1.1,0.5)
+    \rput(1.34,0.5){$h_2 = ({1 \over 2})^3$}
+
+% grid
+    \psline[linewidth=1.5pt]{-}(0,0.5)(0,.53)
+    \psline[linewidth=1.5pt]{-}(0.125,0.5)(0.125,.53)
+    \psline[linewidth=1.5pt]{-}(0.25,0.5)(0.25,.53)
+    \psline[linewidth=1.5pt]{-}(0.375,0.5)(0.375,.53)
+    \psline[linewidth=1.5pt]{-}(0.5,0.5)(0.5,.53)
+    \psline[linewidth=1.5pt]{-}(0.625,0.5)(0.625,.53)
+    \psline[linewidth=1.5pt]{-}(0.75,0.5)(0.75,.53)
+    \psline[linewidth=1.5pt]{-}(0.875,0.5)(0.875,.53)    
+    \psline[linewidth=1.5pt]{-}(1,0.5)(1,.53)
+
+    \rput(0.5,0.75){$\vdots$}
+    \rput(0.5,0.85){$\vdots$}
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}

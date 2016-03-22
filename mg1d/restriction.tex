@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-2.75,-0.5)(2.5,1.5)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% line
+    \psline[linewidth=1.5pt]{-}(0.4,0)(2.1,0)
+
+% grid
+    \psdot[dotstyle=o,dotsize=5pt](0.5,0)
+    \psdot[dotstyle=o,dotsize=5pt](1.25,0)
+    \psdot[dotstyle=o,dotsize=5pt](2.0,0)
+
+% line
+    \psline[linewidth=1.5pt]{-}(0.4,1)(2.1,1)
+
+% grid
+    \psdot[dotstyle=o,dotsize=5pt](0.5,1)
+    \psdot[dotstyle=x,dotsize=6pt](0.875,1)
+    \psdot[dotstyle=o,dotsize=5pt](1.25,1)
+    \psdot[dotstyle=x,dotsize=6pt](1.625,1)
+    \psdot[dotstyle=o,dotsize=5pt](2.0,1)
+
+% prolongation
+    \rput(0.15,0.5){$P_{l-1,l}$}
+    \psline[linewidth=0.75pt,linecolor=blue]{->}(0.5,0.05)(0.5,0.95)
+    \psline[linewidth=0.75pt,linecolor=blue]{->}(1.25,0.05)(1.25,0.95)
+    \psline[linewidth=0.75pt,linecolor=blue]{->}(2,0.05)(2,0.95)
+
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{->}(0.53,0.05)(0.87,0.95)
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{->}(1.23,0.05)(0.88,0.95)
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{->}(1.27,0.05)(1.62,0.95)
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{->}(1.97,0.05)(1.63,0.95)
+
+    \rput(0.45,0.5){\scriptsize $1$}
+    \rput(0.75,0.5){\scriptsize $1 \over 2$}
+    \rput(1,0.5){\scriptsize $1 \over 2$}
+    \rput(1.2,0.5){\scriptsize $1$}
+    \rput(1.5,0.5){\scriptsize $1 \over 2$}
+    \rput(1.75,0.5){\scriptsize $1 \over 2$}
+    \rput(1.95,0.5){\scriptsize $1$}
+
+%%%%%%%%%
+
+% line
+    \psline[linewidth=1.5pt]{-}(-0.4,0)(-2.1,0)
+
+% grid
+    \psdot[dotstyle=o,dotsize=5pt](-0.5,0)
+    \psdot[dotstyle=o,dotsize=5pt](-1.25,0)
+    \psdot[dotstyle=o,dotsize=5pt](-2.0,0)
+
+% line
+    \psline[linewidth=1.5pt]{-}(-0.4,1)(-2.1,1)
+
+% grid
+    \psdot[dotstyle=o,dotsize=5pt](-0.5,1)
+    \psdot[dotstyle=x,dotsize=6pt](-0.875,1)
+    \psdot[dotstyle=o,dotsize=5pt](-1.25,1)
+    \psdot[dotstyle=x,dotsize=6pt](-1.625,1)
+    \psdot[dotstyle=o,dotsize=5pt](-2.0,1)
+
+% restriction
+    \rput(-2.35,0.5){$R_{l,l-1}$}
+    \psline[linewidth=0.75pt,linecolor=blue]{<-}(-0.5,0.05)(-0.5,0.95)
+    \psline[linewidth=0.75pt,linecolor=blue]{<-}(-1.25,0.05)(-1.25,0.95)
+    \psline[linewidth=0.75pt,linecolor=blue]{<-}(-2,0.05)(-2,0.95)
+
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{<-}(-0.53,0.05)(-0.87,0.95)
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{<-}(-1.23,0.05)(-0.88,0.95)
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{<-}(-1.27,0.05)(-1.62,0.95)
+    \psline[linewidth=0.75pt,linecolor=red,linestyle=dashed]{<-}(-1.97,0.05)(-1.63,0.95)
+
+    \rput(-0.45,0.5){\scriptsize $1 \over 2$}
+    \rput(-0.75,0.5){\scriptsize $1 \over 4$}
+    \rput(-1,0.5){\scriptsize $1 \over 4$}
+    \rput(-1.2,0.5){\scriptsize $1 \over 2$}
+    \rput(-1.5,0.5){\scriptsize $1 \over 4$}
+    \rput(-1.75,0.5){\scriptsize $1 \over 4$}
+    \rput(-1.95,0.5){\scriptsize $1 \over 2$}
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}
