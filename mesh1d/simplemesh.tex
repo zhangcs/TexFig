@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-0.5,-0.5)(1.5,1)
+%    \psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% line
+    \psline[linewidth=1.5pt]{-}(-0.2,0)(1.2,0)
+    \rput(0,-0.1){$0$}	
+    \rput(1,-0.1){$1$}	
+    \rput(0.215,-0.1){$h$}
+
+% grid
+    \psline[linewidth=1.5pt]{-}(0,0)(0,0.03)
+    \psline[linewidth=1.5pt]{-}(0.15,0)(0.15,0.03)
+    \psline[linewidth=1.5pt]{-}(0.3,0)(0.3,0.03)
+    \psline[linewidth=1.5pt]{-}(0.45,0)(0.45,0.03)
+    \psline[linewidth=1.5pt]{-}(0.85,0)(0.85,0.03)
+    \psline[linewidth=1.5pt]{-}(1,0)(1,0.03)
+
+% points
+    \rput(0.01,0.1){$x_0$}	
+    \rput(0.16,0.1){$x_1$}	
+    \rput(0.31,0.1){$x_2$}	
+    \rput(0.86,0.1){$x_{_N}$}	
+    \rput(1.01,0.1){$x_{_{N+1}}$}	
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}
