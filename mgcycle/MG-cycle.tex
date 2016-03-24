@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{flafter}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.6in]{geometry}
+%
+\usepackage[algo2e,ruled,linesnumbered,vlined]{algorithm2e}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{pst-plot}
+\usepackage{pst-node}
+\usepackage{pst-math}
+
+\pagestyle{plain}
+\begin{document}
+
+\title{Some schematic description of MG-cycle }
+\author{Chunsheng Feng}
+% spring@xtu.edu.cn  Mar,24, 2016
+
+\maketitle
+
+
+
+\begin{figure}[h!!]
+\begin{center}
+%
+\psset{unit=0.65cm}
+\begin{pspicture}(-0.3,-0.3)(12,6)
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](1.5,5){V2}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](2.0,4){V3}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](2.5,3){V4}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](3.0,2.0){V5}{}
+ \cnodeput[linecolor=black](3.5,1.0){V6}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](4.0,2.0){V7}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](4.5,3){V8}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](5.0,4){V9}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](5.5,5){V10}{}
+%
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V2}{V3}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V3}{V4}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V4}{V5}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V5}{V6}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V6}{V7}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V7}{V8}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V8}{V9}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V9}{V10}
+\put(-0.3,4.8){\scriptsize Fine}
+\put(-0.3,0.8){\scriptsize Coarse}
+
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](8.0,3.9){V12}{} \put(8.6,3.8){\scriptsize Relaxation}
+\cnodeput[linecolor=black](8.0,3.1){V12}{} \put(8.6,2.95){\scriptsize Exact solving}
+\psline[linecolor=blue, linewidth=0.04cm]{->}(7.8,2.6)(8.2,2.0) \put(8.6,2.1){\scriptsize Restriction}
+\psline[linecolor=red, linewidth=0.04cm]{->}(7.8,1.2)(8.2,1.8) \put(8.6,1.3){\scriptsize Prolongation}
+\end{pspicture}
+\vskip -0.7cm
+  \caption{A schematic description of the V-cycle.} \label{fig_vcycle}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+%
+\psset{unit=0.68cm}
+\begin{pspicture}(0,0)(18,5.5)
+ \cnodeput[linecolor=black](1,1.0){V6}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](1.5,2.0){V7}{}
+ \cnodeput[linecolor=black](2.0,1.0){V8}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](2.5,2.0){V9}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](3.0,3.0){V10}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](3.5,2.0){V11}{}
+ \cnodeput[linecolor=black](4.0,1.0){V12}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](4.5,2.0){V13}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](5.0,3.0){V14}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](5.5,4.0){V15}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](6.0,3.0){V16}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](6.5,2.0){V17}{}
+ \cnodeput[linecolor=black](7.0,1.0){V18}{}
+ \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](7.5,2.0){V19}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](8.0,3.0){V20}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](8.5,4.0){V21}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](9.0,5.0){V22}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](9.5,4.0){V23}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](10,3.0){V24}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](10.5,2.0){V25}{}
+\cnodeput[linecolor=black](11,1.0){V26}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](11.5,2.0){V27}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](12,3.0){V28}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](12.5,4.0){V29}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](13,5.0){V30}{}
+
+\ncline[linecolor=red,linewidth=0.06cm,linestyle=dashed]{->}{V6}{V7}
+
+\ncline[linecolor=blue,linewidth=0.04cm]{->}{V7}{V8}
+
+\ncline[linecolor=red,linewidth=0.04cm]{->}{V8}{V9}
+\ncline[linecolor=red,linewidth=0.06cm,linestyle=dashed]{->}{V9}{V10}
+
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V10}{V11}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V11}{V12}
+
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V12}{V13}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V13}{V14}
+\ncline[linecolor=red,linewidth=0.06cm,linestyle=dashed]{->}{V14}{V15}
+
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V15}{V16}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V16}{V17}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V17}{V18}
+
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V18}{V19}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V19}{V20}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V20}{V21}
+\ncline[linecolor=red,linewidth=0.06cm,linestyle=dashed]{->}{V21}{V22}
+
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V22}{V23}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V23}{V24}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V24}{V25}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V25}{V26}
+
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V26}{V27}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V27}{V28}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V28}{V29}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V29}{V30}
+
+\put(0,4.9){\scriptsize Finest}
+\put(0,0.5){\scriptsize Coarsest}
+
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](14,4.4){V32}{}
+\put(14.45,4.4){\scriptsize Relaxation}
+\cnodeput[linecolor=black](14,3.6){V32}{} \put(14.45,3.6){\scriptsize Exact solving}
+
+\psline[linecolor=blue, linewidth=0.04cm]{->}(13.8,3.1)(14.2,2.5)
+\put(14.45,2.8){\scriptsize Restriction}
+
+\psline[linecolor=red, linewidth=0.04cm]{->}(13.8,1.7)(14.2,2.3)
+\put(14.45,2.0){\scriptsize Prolongation}
+
+\psline[linecolor=red,linewidth=0.06cm,linestyle=dashed]{->}(13.8,0.9)(14.2,1.5)
+\put(14.45,1.2){\scriptsize FMG prolongation}
+
+\end{pspicture}
+
+%\vskip -0.7cm
+  \caption{A schematic description of the full multigrid algorithm. } \label{fig_fmg}
+\end{center}
+\end{figure}
+
+%
+\begin{pspicture}(2,0)(9,6)
+% V-cycle
+\cnodeput*[linecolor=black, fillcolor=black](2.0,4.0){V1}{ }
+\cnodeput*[linecolor=black, fillcolor=black](2.5,3.0){V2}{ }
+\cnodeput*[linecolor=black, fillcolor=black](3.0,2.0){V3}{ }
+%
+\cnodeput[linecolor=black](3.5,1.0){V4}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](4.0,2.0){V5}{ }
+\cnodeput*[linecolor=black, fillcolor=black](4.5,3.0){V6}{ }
+\cnodeput*[linecolor=black, fillcolor=black](5.0,4.0){V7}{ }
+%
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V1}{V2}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V2}{V3}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V3}{V4}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V4}{V5}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V5}{V6}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{V6}{V7}
+%
+\rput(3.6, 0.0){V--Cycle}
+%
+% W-cycle
+\cnodeput*[linecolor=black, fillcolor=black](7.0,4){w1}{ }
+\cnodeput*[linecolor=black, fillcolor=black](7.5,3){w2}{ }
+\cnodeput*[linecolor=black, fillcolor=black](8.0,2.0){w3}{ }
+%
+\cnodeput[linecolor=black](8.5,1.0){w4}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](9.0,2.0){w5}{ }
+%
+\cnodeput[linecolor=black](9.5,1.0){w6}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](10.0,2.0){w7}{ }
+\cnodeput*[linecolor=black, fillcolor=black](10.5,3.0){w8}{ }
+\cnodeput*[linecolor=black, fillcolor=black](11.0,2.0){w9}{ }
+%
+\cnodeput[linecolor=black](11.5,1.0){w10}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](12.0,2.0){w11}{ }
+%
+\cnodeput[linecolor=black](12.5,1.0){w12}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](13.0,2.0){w13}{ }
+\cnodeput*[linecolor=black, fillcolor=black](13.5,3.0){w14}{ }
+\cnodeput*[linecolor=black, fillcolor=black](14.0,4.0){w15}{ }
+%
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w1}{w2}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w2}{w3}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w3}{w4}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w4}{w5}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w5}{w6}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w6}{w7}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w7}{w8}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w8}{w9}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w9}{w10}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w10}{w11}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w11}{w12}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w12}{w13}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w13}{w14}
+\ncline[linecolor=red, linewidth=0.04cm]{->}{w14}{w15}
+%
+\rput(10.6, 0.0){W--Cycle}
+%
+\rput(1,4){\scriptsize Finest} %{最细层}
+\rput(1,1){\scriptsize Coarsest}%{最粗层}
+%\put(0,4.9){\scriptsize Finest}
+%\put(0,0.5){\scriptsize Coarsest}
+%
+\cnodeput*[linecolor=black, fillcolor=black](15.0,4.0){V16}{ }
+\put(15.5,4.0){\scriptsize Relaxation} %{磨光}
+\cnodeput[linecolor=black](15.0,3.0){V17}{ }
+\put(15.5,3.0) {\scriptsize Exact solving} %{精确求解}
+\psline[linecolor=blue, linewidth=0.04cm]{->}(14.8,2.5)(15.2,1.8)
+\put(15.5,2.0){\scriptsize Restriction} %{限制}
+\psline[linecolor=red, linewidth=0.04cm]{->}(14.8,0.8)(15.2,1.4)
+\put(15.5,1.0){\scriptsize Prolongation} %{提升校正}
+\end{pspicture}
+%
+%
+
+
+\begin{figure}[h!!]
+%
+\begin{center}
+\unitlength=0.55mm
+\begin{picture}(100, 60)(13,0)
+%\begin{pspicture}(0, 0)(100,75)
+\multiput(20, 42)(5, 0){9}{\line(1, 1){20}} %
+\multiput(20, 42)(2.5, 2.5){9}{\line(1, 0){40}} %
+
+\multiput(20, 21)(10, 0){5}{\line(1, 1){20}} %
+\multiput(20, 21)(5, 5){5}{\line(1, 0){40}} %
+
+\multiput(20, 0)(20, 0){3}{\line(1, 1){20}} %
+\multiput(20, 0)(10, 10){3}{\line(1, 0){40}} %
+
+\thicklines
+\put(12, 16){\textcolor{red}{\vector(0, 1){25}}}
+\put(5,16){\textcolor{red}{\rotatebox{90}{Prolongation}}}
+\put(88, 43){\textcolor{blue}{\vector(0, -1){25}}}
+\put(91, 43){\textcolor{blue}{\rotatebox{-90}{Restriction}}}
+\put(85, 5){Fine Grid}
+\put(85, 52){Coarse Grid}
+\end{picture}
+\end{center}
+\vskip -0.5cm
+%
+\caption{Pictorial demo of multigrid method with three levels of grids.} \label{fig_multigrid}
+\end{figure}
+
+\end{document}
