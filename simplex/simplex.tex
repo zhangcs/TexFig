@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+    
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-2,-1)(2,3)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% simplex
+    \psline[linewidth=1.5pt](-1,0)(0.5,-0.5)
+    \psline[linewidth=1.5pt](0.5,-0.5)(1.5,1)
+    \psline[linewidth=1.5pt](0,2)(0.5,-0.5)
+    \psline[linewidth=1.5pt](0,2)(1.5,1)
+    \psline[linewidth=1.5pt](-1,0)(0,2)
+    \psline[linestyle=dashed,linewidth=1.5pt](-1,0)(1.5,1)
+
+% markers
+    \rput(0.05,2.1){$i$}  
+    \rput(1.55,1.1){$j$}  
+    \rput(0.8,1.6){$E$}  
+    
+    \psline[linestyle=dashed](0,0)(0,2)
+    \psline[linestyle=dashed,linecolor=red](-0.3,-0.22)(0,2)
+    \psline[linestyle=dashed,linecolor=red](-0.3,-0.22)(0,0)
+    \pscurve[linecolor=red](-0.28,-0.05)(-0.2,-0.05)(-0.16,-0.1)
+ 
+    \psline[linestyle=dashed]{->}(-1,1)(-0.4,0.6)
+    \rput(-1.1,1.1){$F_i$}  
+    \psline[linestyle=dashed]{->}(1.2,-0.1)(0.6,0.3)
+    \rput(1.3,-0.2){$F_j$}  
+    \rput(-0.115,0.075){$\theta_E$}		       
+    \rput(-0.4,-0.4){$\kappa_E$}		       
+    		       
+    \end{pspicture}
+\end{figure}
+
+\end{document}
