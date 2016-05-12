@@ -1,0 +1,1271 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+\documentclass[11pt]{article}
+\usepackage{xcolor,color}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-plot}
+\usepackage{pst-node}
+\usepackage{pst-math}
+\usepackage{float}
+%\usepackage{CJK}
+\usepackage{etex}
+\usepackage{xeCJK}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{epsf}
+\usepackage{mdwlist}
+\usepackage{lineno}
+\usepackage{listings}  % ÃÅœÅœÃºÃÃ«ÃÃÂ±Ã­
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{flafter}
+\usepackage{epic,eepic}
+\usepackage{cases}
+\usepackage{color,soul}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{dsfont} %% \mathds{}
+\usepackage{amssymb} %% \mathbb{}
+\usepackage{multirow}
+\usepackage{chapterbib}
+\usepackage{titlesec} %% Appendix
+\usepackage{titletoc}
+%\usepackage[usenames]{color}
+%\usepackage[CJKbookmarks=true]{hyperref}
+\usepackage[top=0.3in, bottom=0.3in, left=0.3in, right=0.3in]{geometry}
+
+\usepackage{pstricks}
+\usepackage{pst-node}
+
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{pst-blur}
+\usepackage{pstricks-add}
+
+
+
+\begin{document}
+
+
+
+%\begin{CJK*}{UTF8}{gbsn}
+
+
+
+
+\center
+\begin{pspicture}(0,0)(6,6)
+ \cnodeput[linecolor=red](0,1){V7}{\textcolor{red}{7}}
+ \cnodeput[linecolor=red](2,0){V8}{\textcolor{red}{8}}
+ \cnodeput[linecolor=red](4,1){V9}{\textcolor{red}{9}}
+ \cnodeput[linecolor=red](-0.5,3){V4}{\textcolor{red}{4}}
+ \cnodeput[linecolor=red](2,3){V5}{\textcolor{red}{5}}
+ \cnodeput[linecolor=red](4.5,3){V6}{\textcolor{red}{6}}
+ \cnodeput[linecolor=red](0,5){V1}{\textcolor{red}{1}}
+ \cnodeput[linecolor=red](2,6){V2}{\textcolor{red}{2}}
+ \cnodeput[linecolor=red](4,5){V3}{\textcolor{red}{3}}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V4}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V3}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V3}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V7}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V7}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V9}
+\end{pspicture}
+
+%\newpage
+\vskip 2cm
+\center
+\begin{pspicture}(0,0)(4,4)
+\psset{linewidth=1.2pt,unit=1.2}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](0,0)(4,4)
+\cnodeput[linecolor=red](1,1){V3}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](2,1){V3}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](3,1){V3}{\textcolor{red}{3}}
+
+\cnodeput[linecolor=red](1,2){V3}{\textcolor{red}{4}}
+\cnodeput[linecolor=red](2,2){V3}{\textcolor{red}{5}}
+\cnodeput[linecolor=red](3,2){V3}{\textcolor{red}{6}}
+
+\cnodeput[linecolor=red](1,3){V3}{\textcolor{red}{7}}
+\cnodeput[linecolor=red](2,3){V3}{\textcolor{red}{8}}
+\cnodeput[linecolor=red](3,3){V3}{\textcolor{red}{9}}
+\end{pspicture}
+
+\vskip 2cm
+
+\begin{pspicture}(0,0)(6,6)
+\psset{linewidth=1.2pt,unit=1.0}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](0,0)(6,6)
+\cnode[linecolor=red](1,1){0.30}{V3}
+\cnode[linecolor=red](2,1){0.30}{V3}
+\cnode[linecolor=red](3,1){0.30}{V3}
+\cnode[linecolor=red](4,1){0.30}{V3}
+\cnode[linecolor=red](5,1){0.30}{V3}
+
+\cnode[linecolor=red](1,2){0.30}{V3}
+\cnode[linecolor=red](2,2){0.30}{V3}
+\cnode[linecolor=red](3,2){0.30}{V3}
+\cnode[linecolor=red](4,2){0.30}{V3}
+\cnode[linecolor=red](5,2){0.30}{V3}
+
+\cnode[linecolor=red](1,3){0.30}{V3}
+\cnode[linecolor=red](2,3){0.30}{V3}
+\cnode[linecolor=red](3,3){0.30}{V3}
+\cnode[linecolor=red](4,3){0.30}{V3}
+\cnode[linecolor=red](5,3){0.30}{V3}
+
+\cnode[linecolor=red](1,4){0.30}{V3}
+\cnode[linecolor=red](2,4){0.30}{V3}
+\cnode[linecolor=red](3,4){0.30}{V3}
+\cnode[linecolor=red](4,4){0.30}{V3}
+\cnode[linecolor=red](5,4){0.30}{V3}
+
+\cnode[linecolor=red](1,5){0.30}{V3}
+\cnode[linecolor=red](2,5){0.30}{V3}
+\cnode[linecolor=red](3,5){0.30}{V3}
+\cnode[linecolor=red](4,5){0.30}{V3}
+\cnode[linecolor=red](5,5){0.30}{V3}
+
+
+\rput(1,1){\textcolor{red}{1}}
+\rput(2,1){\textcolor{red}{2}}
+\rput(3,1){\textcolor{red}{3}}
+\rput(4,1){\textcolor{red}{4}}
+\rput(5,1){\textcolor{red}{5}}
+
+\rput(1,2){\textcolor{red}{6}}
+\rput(2,2){\textcolor{red}{7}}
+\rput(3,2){\textcolor{red}{8}}
+\rput(4,2){\textcolor{red}{9}}
+\rput(5,2){\textcolor{red}{10}}
+
+\rput(1,3){\textcolor{red}{11}}
+\rput(2,3){\textcolor{red}{12}}
+\rput(3,3){\textcolor{red}{13}}
+\rput(4,3){\textcolor{red}{14}}
+\rput(5,3){\textcolor{red}{15}}
+
+\rput(1,4){\textcolor{red}{16}}
+\rput(2,4){\textcolor{red}{17}}
+\rput(3,4){\textcolor{red}{18}}
+\rput(4,4){\textcolor{red}{19}}
+\rput(5,4){\textcolor{red}{20}}
+
+\rput(1,5){\textcolor{red}{21}}
+\rput(2,5){\textcolor{red}{22}}
+\rput(3,5){\textcolor{red}{23}}
+\rput(4,5){\textcolor{red}{24}}
+\rput(5,5){\textcolor{red}{25}}
+
+\end{pspicture}
+
+\vskip 2cm
+
+%25µãÍŒ¿ªÊŒ
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+%\cnode*[linecolor=red](1,1){0.30}{V3}
+%\cnode[linecolor=red](2,1){0.30}{V3}
+%\cnode[linecolor=red](3,1){0.30}{V3}
+%\cnode[linecolor=red](4,1){0.30}{V3}
+%\cnode[linecolor=red](5,1){0.30}{V3}
+
+%\cnode[linecolor=red](1,2){0.30}{V3}
+%\cnode[linecolor=red](2,2){0.30}{V3}
+%\cnode[linecolor=red](3,2){0.30}{V3}
+%\cnode[linecolor=red](4,2){0.30}{V3}
+%\cnode[linecolor=red](5,2){0.30}{V3}
+
+%\cnode[linecolor=red](1,3){0.30}{V3}
+%\cnode[linecolor=red](2,3){0.30}{V3}
+%\cnode[linecolor=red](3,3){0.30}{V3}
+%\cnode[linecolor=red](4,3){0.30}{V3}
+%\cnode[linecolor=red](5,3){0.30}{V3}
+
+%\cnode[linecolor=red](1,4){0.30}{V3}
+%\cnode[linecolor=red](2,4){0.30}{V3}
+%\cnode[linecolor=red](3,4){0.30}{V3}
+%\cnode[linecolor=red](4,4){0.30}{V3}
+%\cnode[linecolor=red](5,4){0.30}{V3}
+
+%\cnode[linecolor=red](1,5){0.30}{V3}
+%\cnode[linecolor=red](2,5){0.30}{V3}
+%\cnode[linecolor=red](3,5){0.30}{V3}
+%\cnode[linecolor=red](4,5){0.30}{V3}
+%\cnode[linecolor=red](5,5){0.30}{V3}
+
+\rput(1,1){\textcolor{red}{1}}
+\rput(2,1){\textcolor{red}{2}}
+\rput(3,1){\textcolor{red}{3}}
+\rput(4,1){\textcolor{red}{4}}
+\rput(5,1){\textcolor{red}{5}}
+
+\rput(1,2){\textcolor{red}{6}}
+\rput(2,2){\textcolor{red}{7}}
+\rput(3,2){\textcolor{red}{8}}
+\rput(4,2){\textcolor{red}{9}}
+\rput(5,2){\textcolor{red}{10}}
+
+\rput(1,3){\textcolor{red}{11}}
+\rput(2,3){\textcolor{red}{12}}
+\rput(3,3){\textcolor{red}{13}}
+\rput(4,3){\textcolor{red}{14}}
+\rput(5,3){\textcolor{red}{15}}
+
+\rput(1,4){\textcolor{red}{16}}
+\rput(2,4){\textcolor{red}{17}}
+\rput(3,4){\textcolor{red}{18}}
+\rput(4,4){\textcolor{red}{19}}
+\rput(5,4){\textcolor{red}{20}}
+
+\rput(1,5){\textcolor{red}{21}}
+\rput(2,5){\textcolor{red}{22}}
+\rput(3,5){\textcolor{red}{23}}
+\rput(4,5){\textcolor{red}{24}}
+\rput(5,5){\textcolor{red}{25}}
+%\caption{natural ordering}
+\end{pspicture}
+
+
+\vskip 2cm
+
+%25µãÍŒ¿ªÊŒ
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+%\cnode*[linecolor=red](1,1){0.30}{V3}
+%\cnode[linecolor=red](2,1){0.30}{V3}
+%\cnode[linecolor=red](3,1){0.30}{V3}
+%\cnode[linecolor=red](4,1){0.30}{V3}
+%\cnode[linecolor=red](5,1){0.30}{V3}
+
+%\cnode[linecolor=red](1,2){0.30}{V3}
+%\cnode[linecolor=red](2,2){0.30}{V3}
+%\cnode[linecolor=red](3,2){0.30}{V3}
+%\cnode[linecolor=red](4,2){0.30}{V3}
+%\cnode[linecolor=red](5,2){0.30}{V3}
+
+%\cnode[linecolor=red](1,3){0.30}{V3}
+%\cnode[linecolor=red](2,3){0.30}{V3}
+%\cnode[linecolor=red](3,3){0.30}{V3}
+%\cnode[linecolor=red](4,3){0.30}{V3}
+%\cnode[linecolor=red](5,3){0.30}{V3}
+
+%\cnode[linecolor=red](1,4){0.30}{V3}
+%\cnode[linecolor=red](2,4){0.30}{V3}
+%\cnode[linecolor=red](3,4){0.30}{V3}
+%\cnode[linecolor=red](4,4){0.30}{V3}
+%\cnode[linecolor=red](5,4){0.30}{V3}
+
+%\cnode[linecolor=red](1,5){0.30}{V3}
+%\cnode[linecolor=red](2,5){0.30}{V3}
+%\cnode[linecolor=red](3,5){0.30}{V3}
+%\cnode[linecolor=red](4,5){0.30}{V3}
+%\cnode[linecolor=red](5,5){0.30}{V3}
+
+\rput(1,1){\textcolor{red}{1}}
+\rput(2,1){\textcolor{red}{3}}
+\rput(3,1){\textcolor{red}{23}}
+\rput(4,1){\textcolor{red}{7}}
+\rput(5,1){\textcolor{red}{5}}
+
+\rput(1,2){\textcolor{red}{2}}
+\rput(2,2){\textcolor{red}{4}}
+\rput(3,2){\textcolor{red}{22}}
+\rput(4,2){\textcolor{red}{8}}
+\rput(5,2){\textcolor{red}{6}}
+
+\rput(1,3){\textcolor{red}{25}}
+\rput(2,3){\textcolor{red}{24}}
+\rput(3,3){\textcolor{red}{9}}
+\rput(4,3){\textcolor{red}{20}}
+\rput(5,3){\textcolor{red}{21}}
+
+\rput(1,4){\textcolor{red}{12}}
+\rput(2,4){\textcolor{red}{13}}
+\rput(3,4){\textcolor{red}{19}}
+\rput(4,4){\textcolor{red}{17}}
+\rput(5,4){\textcolor{red}{16}}
+
+\rput(1,5){\textcolor{red}{10}}
+\rput(2,5){\textcolor{red}{11}}
+\rput(3,5){\textcolor{red}{18}}
+\rput(4,5){\textcolor{red}{15}}
+\rput(5,5){\textcolor{red}{14}}
+%\caption{Minimal degree ordering}
+\end{pspicture}
+
+\vskip 2cm
+
+%25µãÍŒ¿ªÊŒ
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+%\cnode*[linecolor=red](1,1){0.30}{V3}
+%\cnode[linecolor=red](2,1){0.30}{V3}
+%\cnode[linecolor=red](3,1){0.30}{V3}
+%\cnode[linecolor=red](4,1){0.30}{V3}
+%\cnode[linecolor=red](5,1){0.30}{V3}
+
+%\cnode[linecolor=red](1,2){0.30}{V3}
+%\cnode[linecolor=red](2,2){0.30}{V3}
+%\cnode[linecolor=red](3,2){0.30}{V3}
+%\cnode[linecolor=red](4,2){0.30}{V3}
+%\cnode[linecolor=red](5,2){0.30}{V3}
+
+%\cnode[linecolor=red](1,3){0.30}{V3}
+%\cnode[linecolor=red](2,3){0.30}{V3}
+%\cnode[linecolor=red](3,3){0.30}{V3}
+%\cnode[linecolor=red](4,3){0.30}{V3}
+%\cnode[linecolor=red](5,3){0.30}{V3}
+
+%\cnode[linecolor=red](1,4){0.30}{V3}
+%\cnode[linecolor=red](2,4){0.30}{V3}
+%\cnode[linecolor=red](3,4){0.30}{V3}
+%\cnode[linecolor=red](4,4){0.30}{V3}
+%\cnode[linecolor=red](5,4){0.30}{V3}
+
+%\cnode[linecolor=red](1,5){0.30}{V3}
+%\cnode[linecolor=red](2,5){0.30}{V3}
+%\cnode[linecolor=red](3,5){0.30}{V3}
+%\cnode[linecolor=red](4,5){0.30}{V3}
+%\cnode[linecolor=red](5,5){0.30}{V3}
+
+\rput(1,1){\textcolor{red}{10}}
+\rput(2,1){\textcolor{red}{12}}
+\rput(3,1){\textcolor{red}{21}}
+\rput(4,1){\textcolor{red}{15}}
+\rput(5,1){\textcolor{red}{14}}
+
+\rput(1,2){\textcolor{red}{9}}
+\rput(2,2){\textcolor{red}{11}}
+\rput(3,2){\textcolor{red}{22}}
+\rput(4,2){\textcolor{red}{16}}
+\rput(5,2){\textcolor{red}{13}}
+
+\rput(1,3){\textcolor{red}{19}}
+\rput(2,3){\textcolor{red}{20}}
+\rput(3,3){\textcolor{red}{23}}
+\rput(4,3){\textcolor{red}{18}}
+\rput(5,3){\textcolor{red}{17}}
+
+\rput(1,4){\textcolor{red}{1}}
+\rput(2,4){\textcolor{red}{3}}
+\rput(3,4){\textcolor{red}{24}}
+\rput(4,4){\textcolor{red}{7}}
+\rput(5,4){\textcolor{red}{5}}
+
+\rput(1,5){\textcolor{red}{2}}
+\rput(2,5){\textcolor{red}{4}}
+\rput(3,5){\textcolor{red}{25}}
+\rput(4,5){\textcolor{red}{8}}
+\rput(5,5){\textcolor{red}{6}}
+%\caption{Nested disection}
+\end{pspicture}
+
+
+%25µãÍŒœáÊø
+
+\vskip 2cm
+
+%25µãÍŒ¿ªÊŒ
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+%\cnode*[linecolor=red](1,1){0.30}{V3}
+%\cnode[linecolor=red](2,1){0.30}{V3}
+%\cnode[linecolor=red](3,1){0.30}{V3}
+%\cnode[linecolor=red](4,1){0.30}{V3}
+%\cnode[linecolor=red](5,1){0.30}{V3}
+
+%\cnode[linecolor=red](1,2){0.30}{V3}
+%\cnode[linecolor=red](2,2){0.30}{V3}
+%\cnode[linecolor=red](3,2){0.30}{V3}
+%\cnode[linecolor=red](4,2){0.30}{V3}
+%\cnode[linecolor=red](5,2){0.30}{V3}
+
+%\cnode[linecolor=red](1,3){0.30}{V3}
+%\cnode[linecolor=red](2,3){0.30}{V3}
+%\cnode[linecolor=red](3,3){0.30}{V3}
+%\cnode[linecolor=red](4,3){0.30}{V3}
+%\cnode[linecolor=red](5,3){0.30}{V3}
+
+%\cnode[linecolor=red](1,4){0.30}{V3}
+%\cnode[linecolor=red](2,4){0.30}{V3}
+%\cnode[linecolor=red](3,4){0.30}{V3}
+%\cnode[linecolor=red](4,4){0.30}{V3}
+%\cnode[linecolor=red](5,4){0.30}{V3}
+
+%\cnode[linecolor=red](1,5){0.30}{V3}
+%\cnode[linecolor=red](2,5){0.30}{V3}
+%\cnode[linecolor=red](3,5){0.30}{V3}
+%\cnode[linecolor=red](4,5){0.30}{V3}
+%\cnode[linecolor=red](5,5){0.30}{V3}
+
+\rput(1,1){\textcolor{red}{25}}
+\rput(2,1){\textcolor{red}{23}}
+\rput(3,1){\textcolor{red}{20}}
+\rput(4,1){\textcolor{red}{16}}
+\rput(5,1){\textcolor{red}{11}}
+
+\rput(1,2){\textcolor{red}{24}}
+\rput(2,2){\textcolor{red}{21}}
+\rput(3,2){\textcolor{red}{17}}
+\rput(4,2){\textcolor{red}{12}}
+\rput(5,2){\textcolor{red}{7}}
+
+\rput(1,3){\textcolor{red}{22}}
+\rput(2,3){\textcolor{red}{18}}
+\rput(3,3){\textcolor{red}{13}}
+\rput(4,3){\textcolor{red}{8}}
+\rput(5,3){\textcolor{red}{4}}
+
+\rput(1,4){\textcolor{red}{19}}
+\rput(2,4){\textcolor{red}{14}}
+\rput(3,4){\textcolor{red}{9}}
+\rput(4,4){\textcolor{red}{5}}
+\rput(5,4){\textcolor{red}{2}}
+
+\rput(1,5){\textcolor{red}{15}}
+\rput(2,5){\textcolor{red}{10}}
+\rput(3,5){\textcolor{red}{6}}
+\rput(4,5){\textcolor{red}{3}}
+\rput(5,5){\textcolor{red}{1}}
+%\caption{RCM}
+\end{pspicture}
+
+
+\vskip 2cm
+
+
+\vskip 2cm
+
+%25µãÍŒ¿ªÊŒ
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+%\cnode*[linecolor=red](1,1){0.30}{V3}
+%\cnode[linecolor=red](2,1){0.30}{V3}
+%\cnode[linecolor=red](3,1){0.30}{V3}
+%\cnode[linecolor=red](4,1){0.30}{V3}
+%\cnode[linecolor=red](5,1){0.30}{V3}
+
+%\cnode[linecolor=red](1,2){0.30}{V3}
+%\cnode[linecolor=red](2,2){0.30}{V3}
+%\cnode[linecolor=red](3,2){0.30}{V3}
+%\cnode[linecolor=red](4,2){0.30}{V3}
+%\cnode[linecolor=red](5,2){0.30}{V3}
+
+%\cnode[linecolor=red](1,3){0.30}{V3}
+%\cnode[linecolor=red](2,3){0.30}{V3}
+%\cnode[linecolor=red](3,3){0.30}{V3}
+%\cnode[linecolor=red](4,3){0.30}{V3}
+%\cnode[linecolor=red](5,3){0.30}{V3}
+
+%\cnode[linecolor=red](1,4){0.30}{V3}
+%\cnode[linecolor=red](2,4){0.30}{V3}
+%\cnode[linecolor=red](3,4){0.30}{V3}
+%\cnode[linecolor=red](4,4){0.30}{V3}
+%\cnode[linecolor=red](5,4){0.30}{V3}
+
+%\cnode[linecolor=red](1,5){0.30}{V3}
+%\cnode[linecolor=red](2,5){0.30}{V3}
+%\cnode[linecolor=red](3,5){0.30}{V3}
+%\cnode[linecolor=red](4,5){0.30}{V3}
+%\cnode[linecolor=red](5,5){0.30}{V3}
+
+\rput(1,1){\textcolor{red}{1}}
+\rput(2,1){\textcolor{red}{2}}
+\rput(3,1){\textcolor{red}{4}}
+\rput(4,1){\textcolor{red}{7}}
+\rput(5,1){\textcolor{red}{11}}
+
+\rput(1,2){\textcolor{red}{3}}
+\rput(2,2){\textcolor{red}{5}}
+\rput(3,2){\textcolor{red}{8}}
+\rput(4,2){\textcolor{red}{12}}
+\rput(5,2){\textcolor{red}{16}}
+
+\rput(1,3){\textcolor{red}{6}}
+\rput(2,3){\textcolor{red}{9}}
+\rput(3,3){\textcolor{red}{13}}
+\rput(4,3){\textcolor{red}{17}}
+\rput(5,3){\textcolor{red}{20}}
+
+\rput(1,4){\textcolor{red}{10}}
+\rput(2,4){\textcolor{red}{14}}
+\rput(3,4){\textcolor{red}{18}}
+\rput(4,4){\textcolor{red}{21}}
+\rput(5,4){\textcolor{red}{23}}
+
+\rput(1,5){\textcolor{red}{15}}
+\rput(2,5){\textcolor{red}{19}}
+\rput(3,5){\textcolor{red}{22}}
+\rput(4,5){\textcolor{red}{24}}
+\rput(5,5){\textcolor{red}{25}}
+%\caption{CM}
+\end{pspicture}
+
+%25µãÍŒ¿ªÊŒ
+
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+%\cnode*[linecolor=red](1,1){0.30}{V3}
+%\cnode[linecolor=red](2,1){0.30}{V3}
+%\cnode[linecolor=red](3,1){0.30}{V3}
+%\cnode[linecolor=red](4,1){0.30}{V3}
+%\cnode[linecolor=red](5,1){0.30}{V3}
+
+%\cnode[linecolor=red](1,2){0.30}{V3}
+%\cnode[linecolor=red](2,2){0.30}{V3}
+%\cnode[linecolor=red](3,2){0.30}{V3}
+%\cnode[linecolor=red](4,2){0.30}{V3}
+%\cnode[linecolor=red](5,2){0.30}{V3}
+
+%\cnode[linecolor=red](1,3){0.30}{V3}
+%\cnode[linecolor=red](2,3){0.30}{V3}
+%\cnode[linecolor=red](3,3){0.30}{V3}
+%\cnode[linecolor=red](4,3){0.30}{V3}
+%\cnode[linecolor=red](5,3){0.30}{V3}
+
+%\cnode[linecolor=red](1,4){0.30}{V3}
+%\cnode[linecolor=red](2,4){0.30}{V3}
+%\cnode[linecolor=red](3,4){0.30}{V3}
+%\cnode[linecolor=red](4,4){0.30}{V3}
+%\cnode[linecolor=red](5,4){0.30}{V3}
+
+%\cnode[linecolor=red](1,5){0.30}{V3}
+%\cnode[linecolor=red](2,5){0.30}{V3}
+%\cnode[linecolor=red](3,5){0.30}{V3}
+%\cnode[linecolor=red](4,5){0.30}{V3}
+%\cnode[linecolor=red](5,5){0.30}{V3}
+
+%\rput(1,1){\textcolor{red}{1}}
+%\rput(2,1){\textcolor{red}{2}}
+%\rput(3,1){\textcolor{red}{4}}
+%\rput(4,1){\textcolor{red}{7}}
+%\rput(5,1){\textcolor{red}{11}}
+
+%\rput(1,2){\textcolor{red}{3}}
+%\rput(2,2){\textcolor{red}{5}}
+%\rput(3,2){\textcolor{red}{8}}
+%\rput(4,2){\textcolor{red}{12}}
+%\rput(5,2){\textcolor{red}{16}}
+
+%\rput(1,3){\textcolor{red}{6}}
+%\rput(2,3){\textcolor{red}{9}}
+%\rput(3,3){\textcolor{red}{13}}
+%\rput(4,3){\textcolor{red}{17}}
+%\rput(5,3){\textcolor{red}{20}}
+
+%\rput(1,4){\textcolor{red}{10}}
+%\rput(2,4){\textcolor{red}{14}}
+%\rput(3,4){\textcolor{red}{18}}
+%\rput(4,4){\textcolor{red}{21}}
+%\rput(5,4){\textcolor{red}{23}}
+
+%\rput(1,5){\textcolor{red}{15}}
+%\rput(2,5){\textcolor{red}{19}}
+%\rput(3,5){\textcolor{red}{22}}
+%\rput(4,5){\textcolor{red}{24}}
+%\rput(5,5){\textcolor{red}{25}}
+%\caption{CM}
+\end{pspicture}
+
+%25µãÍŒ¿ªÊŒ
+
+\vskip 2cm
+
+%25µãÍŒ¿ªÊŒ
+
+\begin{pspicture}(1,1)(5,5)
+\psset{linewidth=1.2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](1,1)(5,5)
+
+\rput(1,1){\textcolor{red}{1}}
+\rput(2,1){\textcolor{red}{14}}
+\rput(3,1){\textcolor{red}{2}}
+\rput(4,1){\textcolor{red}{15}}
+\rput(5,1){\textcolor{red}{3}}
+
+\rput(1,2){\textcolor{red}{16}}
+\rput(2,2){\textcolor{red}{4}}
+\rput(3,2){\textcolor{red}{17}}
+\rput(4,2){\textcolor{red}{5}}
+\rput(5,2){\textcolor{red}{18}}
+
+\rput(1,3){\textcolor{red}{6}}
+\rput(2,3){\textcolor{red}{19}}
+\rput(3,3){\textcolor{red}{7}}
+\rput(4,3){\textcolor{red}{20}}
+\rput(5,3){\textcolor{red}{8}}
+
+\rput(1,4){\textcolor{red}{21}}
+\rput(2,4){\textcolor{red}{9}}
+\rput(3,4){\textcolor{red}{22}}
+\rput(4,4){\textcolor{red}{10}}
+\rput(5,4){\textcolor{red}{23}}
+
+\rput(1,5){\textcolor{red}{11}}
+\rput(2,5){\textcolor{red}{24}}
+\rput(3,5){\textcolor{red}{12}}
+\rput(4,5){\textcolor{red}{25}}
+\rput(5,5){\textcolor{red}{13}}
+%\caption{CM}
+\end{pspicture}
+
+
+
+
+
+
+
+\vskip 2cm
+\begin{pspicture}(0,0)(6,6)
+\psset{linewidth=1.2pt,unit=1.0}
+\cnode[linecolor=red](1,1){0.30}{V21}
+\cnode[linecolor=red](2,0.7){0.30}{V22}
+\cnode[linecolor=red](3,0.5){0.30}{V23}
+\cnode[linecolor=red](4,0.7){0.30}{V24}
+\cnode[linecolor=red](5,1){0.30}{V25}
+
+\cnode[linecolor=red](0.7,2){0.30}{V16}
+\cnode[linecolor=red](2,1.8){0.30}{V17}
+\cnode[linecolor=red](3,2){0.30}{V18}
+\cnode[linecolor=red](4.2,1.8){0.30}{V19}
+\cnode[linecolor=red](5.3,2){0.30}{V20}
+
+\cnode[linecolor=red](0.5,3){0.30}{V11}
+\cnode[linecolor=red](1.8,2.8){0.30}{V12}
+\cnode[linecolor=red](3.2,3){0.30}{V13}
+\cnode[linecolor=red](4.3,3.2){0.30}{V14}
+\cnode[linecolor=red](5.5,3){0.30}{V15}
+
+\cnode[linecolor=red](0.7,4){0.30}{V6}
+\cnode[linecolor=red](2,4.2){0.30}{V7}
+\cnode[linecolor=red](3,4){0.30}{V8}
+\cnode[linecolor=red](4,4.2){0.30}{V9}
+\cnode[linecolor=red](5.3,4){0.30}{V10}
+
+\cnode[linecolor=red](1,5){0.30}{V1}
+\cnode[linecolor=red](2,5.3){0.30}{V2}
+\cnode[linecolor=red](3,5.5){0.30}{V3}
+\cnode[linecolor=red](4,5.3){0.30}{V4}
+\cnode[linecolor=red](5,5){0.30}{V5}
+
+
+\rput(1,1){\textcolor{red}{21}}
+\rput(2,0.7){\textcolor{red}{22}}
+\rput(3,0.5){\textcolor{red}{23}}
+\rput(4,0.7){\textcolor{red}{24}}
+\rput(5,1){\textcolor{red}{25}}
+
+\rput(0.7,2){\textcolor{red}{16}}
+\rput(2,1.8){\textcolor{red}{17}}
+\rput(3,2){\textcolor{red}{18}}
+\rput(4.2,1.8){\textcolor{red}{19}}
+\rput(5.3,2){\textcolor{red}{20}}
+
+\rput(0.5,3){\textcolor{red}{11}}
+\rput(1.8,2.8){\textcolor{red}{12}}
+\rput(3.2,3){\textcolor{red}{13}}
+\rput(4.3,3.2){\textcolor{red}{14}}
+\rput(5.5,3){\textcolor{red}{15}}
+
+\rput(0.7,4){\textcolor{red}{6}}
+\rput(2,4.2){\textcolor{red}{7}}
+\rput(3,4){\textcolor{red}{8}}
+\rput(4,4.2){\textcolor{red}{9}}
+\rput(5.3,4){\textcolor{red}{10}}
+
+\rput(1,5){\textcolor{red}{1}}
+\rput(2,5.3){\textcolor{red}{2}}
+\rput(3,5.5){\textcolor{red}{3}}
+\rput(4,5.3){\textcolor{red}{4}}
+\rput(5,5){\textcolor{red}{5}}
+
+
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V3}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V7}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V3}{V4}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V3}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V10}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V7}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V11}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V7}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V7}{V12}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V13}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V9}{V10}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V9}{V14}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V10}{V15}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V11}{V12}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V11}{V16}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V12}{V13}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V12}{V17}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V13}{V14}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V13}{V18}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V14}{V15}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V14}{V19}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V15}{V20}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V16}{V17}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V16}{V21}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V17}{V18}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V17}{V22}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V18}{V19}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V18}{V23}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V19}{V20}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V19}{V24}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V20}{V25}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V21}{V22}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V22}{V23}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V23}{V24}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V24}{V25}
+
+\end{pspicture}
+
+
+\vskip 2cm
+\begin{pspicture}(0,0)(6,6)
+\psset{linewidth=1.4pt,unit=1.0}
+\cnode[linecolor=red](1,1){0.30}{V21}
+\cnode[linecolor=red](2,0.7){0.15}{V22}
+\cnode[linecolor=red](3,0.5){0.30}{V23}
+\cnode[linecolor=red](4,0.7){0.15}{V24}
+\cnode[linecolor=red](5,1){0.30}{V25}
+
+\cnode[linecolor=red](0.7,2){0.15}{V16}
+\cnode[linecolor=red](2,1.8){0.30}{V17}
+\cnode[linecolor=red](3,2){0.15}{V18}
+\cnode[linecolor=red](4.2,1.8){0.30}{V19}
+\cnode[linecolor=red](5.3,2){0.15}{V20}
+
+\cnode[linecolor=red](0.5,3){0.30}{V11}
+\cnode[linecolor=red](1.8,2.8){0.15}{V12}
+\cnode[linecolor=red](3.2,3){0.30}{V13}
+\cnode[linecolor=red](4.3,3.2){0.15}{V14}
+\cnode[linecolor=red](5.5,3){0.30}{V15}
+
+\cnode[linecolor=red](0.7,4){0.15}{V6}
+\cnode[linecolor=red](2,4.2){0.30}{V7}
+\cnode[linecolor=red](3,4){0.15}{V8}
+\cnode[linecolor=red](4,4.2){0.30}{V9}
+\cnode[linecolor=red](5.3,4){0.15}{V10}
+
+\cnode[linecolor=red](1,5){0.30}{V1}
+\cnode[linecolor=red](2,5.3){0.15}{V2}
+\cnode[linecolor=red](3,5.5){0.30}{V3}
+\cnode[linecolor=red](4,5.3){0.15}{V4}
+\cnode[linecolor=red](5,5){0.30}{V5}
+
+
+\rput(1,1){\textcolor{red}{21}}
+%\rput(2,0.7){\textcolor{red}{22}}
+\rput(3,0.5){\textcolor{red}{23}}
+%\rput(4,0.7){\textcolor{red}{24}}
+\rput(5,1){\textcolor{red}{25}}
+
+%\rput(0.7,2){\textcolor{red}{16}}
+\rput(2,1.8){\textcolor{red}{17}}
+%\rput(3,2){\textcolor{red}{18}}
+\rput(4.2,1.8){\textcolor{red}{19}}
+%\rput(5.3,2){\textcolor{red}{20}}
+
+\rput(0.5,3){\textcolor{red}{11}}
+%\rput(1.8,2.8){\textcolor{red}{12}}
+\rput(3.2,3){\textcolor{red}{13}}
+%\rput(4.3,3.2){\textcolor{red}{14}}
+\rput(5.5,3){\textcolor{red}{15}}
+
+%\rput(0.7,4){\textcolor{red}{6}}
+\rput(2,4.2){\textcolor{red}{7}}
+%\rput(3,4){\textcolor{red}{8}}
+\rput(4,4.2){\textcolor{red}{9}}
+%\rput(5.3,4){\textcolor{red}{10}}
+
+\rput(1,5){\textcolor{red}{1}}
+%\rput(2,5.3){\textcolor{red}{2}}
+\rput(3,5.5){\textcolor{red}{3}}
+%\rput(4,5.3){\textcolor{red}{4}}
+\rput(5,5){\textcolor{red}{5}}
+
+
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V3}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V7}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V3}{V4}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V3}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V10}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V7}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V11}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V7}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V7}{V12}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V13}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V9}{V10}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V9}{V14}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V10}{V15}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V11}{V12}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V11}{V16}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V12}{V13}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V12}{V17}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V13}{V14}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V13}{V18}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V14}{V15}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V14}{V19}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V15}{V20}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V16}{V17}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V16}{V21}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V17}{V18}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V17}{V22}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V18}{V19}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V18}{V23}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V19}{V20}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V19}{V24}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V20}{V25}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V21}{V22}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V22}{V23}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V23}{V24}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V24}{V25}
+
+\end{pspicture}
+
+\center
+%\begin{pspicture}(2,0)(9,6)
+\begin{pspicture}(7,0)(9,6)
+% V-cycle
+\cnodeput*[linecolor=black, fillcolor=black](2.0,4.0){V1}{ }
+\cnodeput*[linecolor=black, fillcolor=black](2.5,3.0){V2}{ }
+\cnodeput*[linecolor=black, fillcolor=black](3.0,2.0){V3}{ }
+%
+\cnodeput*[linecolor=red, fillcolor=red](3.5,1.0){V4}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](4.0,2.0){V5}{ }
+\cnodeput*[linecolor=black, fillcolor=black](4.5,3.0){V6}{ }
+\cnodeput*[linecolor=black, fillcolor=black](5.0,4.0){V7}{ }
+%
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V1}{V2}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V2}{V3}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{V3}{V4}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{V4}{V5}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{V5}{V6}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{V6}{V7}
+%
+\rput(3.6, 0.0){V-cycle}
+%
+% W-cycle
+\cnodeput*[linecolor=black, fillcolor=black](7.0,4){w1}{ }
+\cnodeput*[linecolor=black, fillcolor=black](7.5,3){w2}{ }
+\cnodeput*[linecolor=black, fillcolor=black](8.0,2.0){w3}{ }
+%
+\cnodeput*[linecolor=red, fillcolor=red](8.5,1.0){w4}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](9.0,2.0){w5}{ }
+%
+\cnodeput*[linecolor=red, fillcolor=red](9.5,1.0){w6}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](10.0,2.0){w7}{ }
+\cnodeput*[linecolor=black, fillcolor=black](10.5,3.0){w8}{ }
+\cnodeput*[linecolor=black, fillcolor=black](11.0,2.0){w9}{ }
+%
+\cnodeput*[linecolor=red, fillcolor=red](11.5,1.0){w10}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](12.0,2.0){w11}{ }
+%
+\cnodeput*[linecolor=red, fillcolor=red](12.5,1.0){w12}{ }
+%
+\cnodeput*[linecolor=black, fillcolor=black](13.0,2.0){w13}{ }
+\cnodeput*[linecolor=black, fillcolor=black](13.5,3.0){w14}{ }
+\cnodeput*[linecolor=black, fillcolor=black](14.0,4.0){w15}{ }
+%
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w1}{w2}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w2}{w3}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w3}{w4}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w4}{w5}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w5}{w6}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w6}{w7}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w7}{w8}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w8}{w9}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w9}{w10}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w10}{w11}
+\ncline[linecolor=blue, linewidth=0.04cm]{->}{w11}{w12}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w12}{w13}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w13}{w14}
+\ncline[linecolor=magenta, linewidth=0.04cm]{->}{w14}{w15}
+%
+\rput(10.6, 0.0){W-cycle}
+%
+\rput(1,4){Finest}
+\rput(1,1){Coarsest}
+%
+\cnodeput*[linecolor=black, fillcolor=black](15.0,4.0){V16}{ }
+\rput(16.5,4.0){Relaxation}
+\cnodeput*[linecolor=red, fillcolor=red](15.0,3.0){V17}{ }
+\rput(16.7,3.0){Exact Solving}
+\psline[linecolor=blue, linewidth=0.04cm]{->}(14.8,2.5)(15.2,1.8)
+\rput(16.5,2.0){Restriction}
+\psline[linecolor=magenta, linewidth=0.04cm]{->}(14.8,0.8)(15.2,1.4)
+\rput(16.7,1.0){Prolongation}
+\end{pspicture}
+
+\psset{linewidth=1.5pt,unit=1}
+\begin{pspicture}(0,0)(8,5)
+\psline[linewidth=0.03cm]{-}(0,-2)(8,-2)
+\psline[linewidth=0.03cm]{-}(0,-4)(8,-4)
+\psline[linewidth=0.03cm]{-}(0,-6)(8,-6)
+\psline[linewidth=0.03cm]{-}(2,0)(2,-8)
+\psline[linewidth=0.03cm]{-}(4,0)(4,-8)
+\psline[linewidth=0.03cm]{-}(6,0)(6,-8)
+%\cnode*(4,-4){4pt}{A}
+%\psset{fillstyle=solid}
+\psdots[dotstyle=*,fillcolor=black,linecolor=black](2,-4)(2,-2)(2,-6)
+\psdots[dotstyle=*,fillcolor=black,linecolor=black](4,-4)(4,-2)(4,-6)
+\psdots[dotstyle=*,fillcolor=black,linecolor=black](6,-4)(6,-2)(6,-6)
+\rput(3.5,-4.5){\textcolor{red}{(i, j)}}
+\end{pspicture}
+
+\newpage
+
+
+\begin{equation}
+[L_h]_{i,j} =\frac{1}{h^2}
+\left[
+\begin{array}{ccc}
+    &-1  &      \\
+-1  &4   &-1    \\
+    &-1  &
+\end{array}
+\right]
+\end{equation}
+
+
+
+
+\textcolor{red}{
+\begin{equation}
+[L_h]_{i,j} =\frac{1}{h^2}
+\left[
+\begin{array}{ccc}
+    &-\varepsilon  &      \\
+-1  &2(1+\varepsilon)   &-1    \\
+    &-\varepsilon  &
+\end{array}
+\right]
+\end{equation}
+}
+
+
+\vskip 2cm
+\begin{pspicture}(0,0)(6,6)
+\psset{linewidth=2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridlabels=0pt, gridcolor=red](0,0)(6,6)
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=3pt, gridlabels=0pt](0,0)(6,6)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,0)(2,0)(4,0)(6,0)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,2)(2,2)(4,2)(6,2)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,4)(2,4)(4,4)(6,4)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,6)(2,6)(4,6)(6,6)
+\end{pspicture}
+
+
+\vskip 2cm
+\begin{pspicture}(0,0)(4,4)
+\psset{linewidth=2pt,unit=1.2}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=1.2pt, gridlabels=0pt](0,0)(4,4)
+% Red nodes
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,0)(2,0)(4,0)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,2)(2,2)(4,2)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,4)(2,4)(4,4)
+% Black nodes
+\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,0)(3,0)
+\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,2)(3,2)
+\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,4)(3,4)
+% Green nodes
+\psdots[dotstyle=triangle*,fillcolor=green,linecolor=green](1,1)(3,1)
+\psdots[dotstyle=triangle*,fillcolor=green,linecolor=green](1,3)(3,3)
+% Yellow nodes
+\psdots[dotstyle=pentagon*,fillcolor=magenta,linecolor=magenta](0,1)(2,1)(4,1)
+\psdots[dotstyle=pentagon*,fillcolor=magenta,linecolor=magenta](0,3)(2,3)(4,3)
+
+\end{pspicture}
+
+\vskip 2cm
+\begin{pspicture}(0,0)(4,4)
+\psset{linewidth=2pt,unit=1.2}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=1.2pt, gridlabels=0pt](0,0)(4,4)
+\psline[linewidth=1pt,linecolor = red]{-}(0,1)(1,0)
+\psline[linewidth=1pt,linecolor = red]{-}(0,2)(2,0)
+\psline[linewidth=1pt,linecolor = red]{-}(0,3)(3,0)
+\psline[linewidth=1pt,linecolor = red]{-}(0,4)(4,0)
+\psline[linewidth=1pt,linecolor = red]{-}(1,4)(4,1)
+\psline[linewidth=1pt,linecolor = red]{-}(2,4)(4,2)
+\psline[linewidth=1pt,linecolor = red]{-}(3,4)(4,3)
+%\psline[linewidth=2pt,linecolor = red]{-}(4,4)(4,4)
+%\psset{linewidth=2pt,unit=1.2}
+\psdot[dotstyle=o,fillcolor=red,linecolor=red, dotsize=3pt](4,4)
+\psdot[dotstyle=o,fillcolor=red,linecolor=red, dotsize=3pt](0,0)
+% Red nodes
+%\psdots[dotstyle=square,fillcolor=red,linecolor=red,unit=1](0,0)(2,0)(4,0)
+%\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,2)(2,2)(4,2)
+%\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,4)(2,4)(4,4)
+% Black nodes
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,0)(3,0)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,2)(3,2)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,4)(3,4)
+% Green nodes
+%\psdots[dotstyle=triangle*,fillcolor=green,linecolor=green](1,1)(3,1)
+%\psdots[dotstyle=triangle*,fillcolor=green,linecolor=green](1,3)(3,3)
+% Yellow nodes
+%\psdots[dotstyle=pentagon*,fillcolor=magenta,linecolor=magenta](0,1)(2,1)(4,1)
+%\psdots[dotstyle=pentagon*,fillcolor=magenta,linecolor=magenta](0,3)(2,3)(4,3)
+
+\end{pspicture}
+
+
+\vskip 2cm
+\begin{pspicture}(0,0)(4,4)
+\psset{linewidth=2pt,unit=1.2}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=1.2pt, gridlabels=0pt](0,0)(4,4)
+%\psline[linewidth=1pt,linecolor = red]{-}(0,1)(1,0)
+%\psline[linewidth=1pt,linecolor = red]{-}(0,2)(2,0)
+%\psline[linewidth=1pt,linecolor = red]{-}(0,3)(3,0)
+%\psline[linewidth=1pt,linecolor = red]{-}(0,4)(4,0)
+%\psline[linewidth=1pt,linecolor = red]{-}(1,4)(4,1)
+%\psline[linewidth=1pt,linecolor = red]{-}(2,4)(4,2)
+%\psline[linewidth=1pt,linecolor = red]{-}(3,4)(4,3)
+%\psline[linewidth=2pt,linecolor = red]{-}(4,4)(4,4)
+%\psset{linewidth=2pt,unit=1.2}
+%\psdot[dotstyle=o,fillcolor=red,linecolor=red, dotsize=3pt](4,4)
+%\psdot[dotstyle=o,fillcolor=red,linecolor=red, dotsize=3pt](0,0)
+% Red nodes
+%\psdots[dotstyle=square,fillcolor=red,linecolor=red,unit=1](0,0)(2,0)(4,0)
+%\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,2)(2,2)(4,2)
+%\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,4)(2,4)(4,4)
+% Black nodes
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,0)(3,0)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,2)(3,2)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](1,4)(3,4)
+% Green nodes
+%\psdots[dotstyle=triangle*,fillcolor=green,linecolor=green](1,1)(3,1)
+%\psdots[dotstyle=triangle*,fillcolor=green,linecolor=green](1,3)(3,3)
+% Yellow nodes
+%\psdots[dotstyle=pentagon*,fillcolor=magenta,linecolor=magenta](0,1)(2,1)(4,1)
+%\psdots[dotstyle=pentagon*,fillcolor=magenta,linecolor=magenta](0,3)(2,3)(4,3)
+
+\end{pspicture}
+
+\vskip 2cm
+\begin{pspicture}(0,0)(6,6)
+\psset{linewidth=2pt,unit=1.0}
+%\psgrid[subgriddiv=1, griddots=-1, gridlabels=0pt, gridcolor=red](0,0)(6,6)
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=3pt, gridlabels=0pt](0,0)(6,6)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,0)(2,0)(4,0)(6,0)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,2)(2,2)(4,2)(6,2)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,4)(2,4)(4,4)(6,4)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](0,6)(2,6)(4,6)(6,6)
+%
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,1)(3,1)(5,1)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,3)(3,3)(5,3)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,5)(3,5)(5,5)
+\end{pspicture}
+
+
+\vskip 2cm
+\begin{pspicture}(0,0)(6,6)
+\psset{linewidth=2pt,unit=1.0}
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=3pt, gridlabels=0pt](0,0)(6,6)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,0)(3,0)(5,0)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,1)(3,1)(5,1)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,2)(3,2)(5,2)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,3)(3,3)(5,3)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,4)(3,4)(5,4)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,5)(3,5)(5,5)
+\psdots[dotstyle=square,fillcolor=red,linecolor=red](1,6)(3,6)(5,6)
+\end{pspicture}
+
+\center
+\psset{xunit=0.8cm,yunit=8cm}
+\begin{pspicture}(-3,-3)(16,1.1)
+\psaxes[Ox=1,Oy=0.4, Dy=0.1, linewidth=0.04cm, linecolor=black, showorigin=true,labels=all]{->}(1,0.4)(16,1.1)
+\savedata{\mydata}[{
+{1,0.565},  {2,0.811},  {3,0.867},  {4,0.890}, {5, 0.904},
+{6,0.913},  {7,0.920},  {8,0.925},  {9,0.929}, {10,0.933},
+{11,0.935}, {12,0.938}, {13,0.940}, {14,0.941},{15,0.943}
+}]
+\dataplot[linecolor=red,linewidth=0.04cm,plotstyle=curve,showpoints=true,dotstyle=square*]{\mydata}
+
+\savedata{\mydata}[{
+{1,0.412}, {2,0.718},  {3,0.846},  {4,0.883}, {5, 0.897},
+{6,0.903},  {7,0.906},  {8,0.907},  {9,0.908}, {10,0.908},
+{11,0.908}, {12,0.908}, {13,0.908}, {14,0.908},{15,0.908}
+}]
+\dataplot[linecolor=blue,linewidth=0.03cm,plotstyle=curve,showpoints=true,dotstyle=diamond*]{\mydata}
+
+\rput(9,0.28){迭代次数}
+\rput(-0.8,0.8){$Rate$}
+\end{pspicture}
+
+\center
+\psset{xunit=0.8cm,yunit=1.5cm}
+\begin{pspicture}(-3,-3)(16,1.1)
+\psaxes[linewidth=0.04cm, linecolor=black, showorigin=true,labels=x](0,-1.2)(12,1.1)
+\savedata{\mydata}[{
+{0,0}, {1,1.0}, {2,0.3}, {3,-1}, {4,-0.3}, {5, 1.0},
+{6,0.0},  {7,-1},  {8,-0.2},  {9,1.0}, {10,0.2},
+{11,-1}, {12,0.1}
+}]
+\dataplot[linecolor=red,linewidth=0.02cm,plotstyle=curve,showpoints=true,dotstyle=*]{\mydata}
+
+\rput(6,-2.0){$\Omega_h$}
+
+\psset{xunit=1.6cm,yunit=1.5cm}
+\psaxes[linewidth=0.04cm, linecolor=black, showorigin=true,labels=x]{}(0,-4.5)(6,-2.2)
+\savedata{\mydata}[{
+{0,-3.3}, {1,-3.0}, {2,-3.6}, {3,-3.3}, {4,-3.5}, {5,-3.1}, {6,-3.2}
+}]
+\dataplot[linecolor=red,linewidth=0.02cm,plotstyle=curve,showpoints=true,dotstyle=*]{\mydata}
+
+\rput(3,-5.2){$\Omega_{2h}$}
+
+\end{pspicture}
+
+\vskip 7cm
+
+%\begin{figure}[H]
+%  \centering
+%\psset{arrowscale=1}
+%\newcommand{\cpubox}[1]{\psframebox[linewidth=0.02cm]{\parbox{5.2cm}{\centering #1}}}
+%\newcommand{\gpubox}[1]{\psframebox[fillstyle=solid, linewidth=0.02cm]{\parbox{5cm}{\centering #1}}}
+%
+% \psmatrix[colsep=0.7cm,rowsep=0.5cm]
+%
+% \psovalbox[fillstyle=solid]{ÃÃ€ÃÃ«ÃÅŸÂ±ÃªÅÂ¯ $V$ }  \\
+%
+% \gpubox{Â³ÃµÃÅÂ»Â¯ $U\leftarrow V$, $C\leftarrow\varnothing$, $F\leftarrow\varnothing$} \\   %2
+%
+%  \gpubox{ÃÂ³ÅÃ$U$ÃÃÃÃ¹ÃÃÅÃÂµÃ£$i$ÂµÃÃÃÃÂµÃÂµ$\lambda_i$} \\   %2
+%
+% \gpubox{ÃÃÂ³Ã¶ÃÃÃÂµÃÂµÃÃ®ÅœÃ³ÂµÃÅÃÂµÃ£$i_0$ } \\   %2
+%
+%  \gpubox{ÅÂ«$i_0$ ÃÂ¡ÃÂªÅœÃÃÃžÅŸÃ±ÂµÃ£Â²Â¢ÅœÃ$U$ ÃÃÃÃÂ³Ãœ} \\   %2
+%
+%  \gpubox{ÅÂ«$i_0$ ÂµÃÃÂ¿ÃÃÃÂµÂµÃ£Â±Ã€Â³ÃÃÅŸÃÃžÅŸÃ±ÂµÃ£Â²Â¢ÅœÃ$U$ÃÃÃÃÂ³Ãœ} \\   %2
+%
+%  \gpubox{$U = \varnothing ~?$} \\   %2
+%
+%  \gpubox{ÅÃ¬Â²Ã©C1 ÃÃµÅÃŸ} \\   %2
+%
+%\psovalbox[fillstyle=solid]{ÃÃ€Â³Ã¶ÅÂ¯ÂºÃ$C$ÂºÃ$F$} \\ %15
+%
+% \ncline[linewidth=0.05cm]{->}{1,1}{2,1}
+% \ncline[linewidth=0.05cm]{->}{2,1}{3,1}
+%  \ncline[linewidth=0.05cm]{->}{3,1}{4,1}
+% \ncline[linewidth=0.05cm]{->}{4,1}{5,1}
+%  \ncline[linewidth=0.05cm]{->}{5,1}{6,1}
+%  \ncline[linewidth=0.05cm]{->}{6,1}{7,1}
+%  \ncline[linewidth=0.05cm]{->}{7,1}{8,1}>{\footnotesize{ÃÃ}}
+%  \ncline[linewidth=0.05cm]{->}{8,1}{9,1}
+%  \ncangle[angleA=180,angleB=180,arm=2.0cm, linewidth=0.05cm]{->}{7,1}{3,1} \ncput*{Â·Ã±}
+%\endpsmatrix
+%\caption{ÃÃ£Â·Å¡5.8 ÂµÃÃÃ·Â³ÃÃÅ}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\psset{arrowscale=1}
+%\newcommand{\gpubox}[1]{\psframebox[fillstyle=solid,linewidth=0.02cm]{\parbox{5cm}{\centering #1}}}
+%
+%\psmatrix[colsep=0.7cm,rowsep=0.5cm]
+%\psovalbox[fillstyle=solid]{ÃÃ€ÃÃ«ÃÅŸÂ±ÃªÅÂ¯ $V$ }\\ %1
+%
+%\gpubox{Â³ÃµÃÅÂ»Â¯$v(i)=0, i\in V$, $j=1, m=1,k=1$} \\  %2
+%
+%\gpubox{$v(j)=0~Â£Â¿$} \\   %3
+%
+%\gpubox{ for $k\in N_j$} \\   %4
+%
+%\gpubox{$v(k)=0~?$} \\  %5
+%
+%\gpubox{$v(j)=m, v(k)=m$} \\  %6
+%
+%\gpubox{$v(j)=m$} \\   %7
+%
+%\gpubox{$m = m+1$} \\   %8
+%
+%\gpubox{$j = j+1$} \\   %9
+%
+%\gpubox{$j \leq n~Â£Â¿$} \\   %10
+%
+%\psovalbox[fillstyle=solid]{ÅÃ¡ÃÃž} \\ %11
+%
+%\ncline[linewidth=0.05cm]{->}{1,1}{2,1}
+%\ncline[linewidth=0.05cm]{->}{2,1}{3,1}
+%\ncline[linewidth=0.05cm]{->}{3,1}{4,1}>{\footnotesize{ÃÃ}}
+%\ncline[linewidth=0.05cm]{->}{4,1}{5,1}
+%\ncline[linewidth=0.05cm]{->}{5,1}{6,1}>{\footnotesize{ÃÃ}}
+%\ncline[linewidth=0.05cm]{->}{7,1}{8,1}
+%\ncline[linewidth=0.05cm]{->}{8,1}{9,1}
+%\ncline[linewidth=0.05cm]{->}{9,1}{10,1}
+%\ncline[linewidth=0.05cm]{->}{10,1}{11,1}>{\footnotesize{Â·Ã±}}
+%\rput(4.2,6.5){\footnotesize{$k=k+1$}}
+%%\rput[tr](150.9,8){$\Gamma_1$}
+%
+%\ncangle[angleA=180,angleB=180,arm=2.0cm,linewidth=0.05cm]{->}{3,1}{9,1} \ncput*{Â·Ã±}
+%\ncangle[angleA=180,angleB=180,arm=1.0cm,linewidth=0.05cm]{->}{4,1}{7,1} \ncput*{$k>|N_j|$}
+%\ncangle[angleA=0,angleB=0,arm=1.0cm,linewidth=0.05cm]{->}{6,1}{8,1}
+%\ncangle[angleA=0,angleB=0,arm=1.0cm,linewidth=0.05cm]{->}{5,1}{4,1} \ncput*{Â·Ã±}
+%\ncangle[angleA=0,angleB=0,arm=2.0cm,linewidth=0.05cm]{->}{10,1}{3,1} \ncput*{ÃÃ}
+%\endpsmatrix
+%\caption{ÃÃ£Â·Å¡5.9 ÂµÃÃÃ·Â³ÃÃÅ}
+%\end{figure}
+%
+%\newpage
+%\begin{pspicture}(0,0)(8,5)
+%\psset{linewidth=1.5pt,unit=1}
+%\psline[linewidth=0.03cm]{-}(0,-2)(8,-2)
+%\psline[linewidth=0.03cm]{-}(0,-4)(8,-4)
+%\psline[linewidth=0.03cm]{-}(0,-6)(8,-6)
+%\psline[linewidth=0.03cm]{-}(2,0)(2,-8)
+%\psline[linewidth=0.03cm]{-}(4,0)(4,-8)
+%\psline[linewidth=0.03cm]{-}(6,0)(6,-8)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](2,-4)(2,-2)(2,-6)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](4,-4)(4,-2)(4,-6)
+%\psdots[dotstyle=*,fillcolor=black,linecolor=black](6,-4)(6,-2)(6,-6)
+%\rput(3.5,-4.5){\LARGE{(i, j)}}
+%\end{pspicture}
+
+%\end{CJK*}
+\end{document}
