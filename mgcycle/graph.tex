@@ -1,0 +1,100 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+
+\documentclass[11pt]{article}
+%
+%   April/2011: revision
+%
+\usepackage{xcolor,color}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amssymb} %% \mathbb{}
+
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{pst-blur}
+\usepackage{pstricks-add}
+
+\usepackage[top=0.3in, bottom=0.3in, left=0.3in, right=0.3in]{geometry}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+\begin{pspicture}(-5.5,-0.5)(9,6)
+\psset{linewidth=1.2pt,unit=1.2}
+
+% finite difference mesh
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](0,0)(4,4)
+
+\cnodeput[linecolor=red](1,1){V3}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](2,1){V3}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](3,1){V3}{\textcolor{red}{3}}
+
+\cnodeput[linecolor=red](1,2){V3}{\textcolor{red}{4}}
+\cnodeput[linecolor=red](2,2){V3}{\textcolor{red}{5}}
+\cnodeput[linecolor=red](3,2){V3}{\textcolor{red}{6}}
+
+\cnodeput[linecolor=red](1,3){V3}{\textcolor{red}{7}}
+\cnodeput[linecolor=red](2,3){V3}{\textcolor{red}{8}}
+\cnodeput[linecolor=red](3,3){V3}{\textcolor{red}{9}}
+
+% finite element mesh
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](-5,0)(-1,4)
+\psline[linewidth=0.55pt](-5,0)(-1,4)
+\psline[linewidth=0.55pt](-5,1)(-2,4)
+\psline[linewidth=0.55pt](-5,2)(-3,4)
+\psline[linewidth=0.55pt](-5,3)(-4,4)
+\psline[linewidth=0.55pt](-4,0)(-1,3)
+\psline[linewidth=0.55pt](-3,0)(-1,2)
+\psline[linewidth=0.55pt](-2,0)(-1,1)
+
+\cnodeput[linecolor=red](-4,1){V3}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](-3,1){V3}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](-2,1){V3}{\textcolor{red}{3}}
+
+\cnodeput[linecolor=red](-4,2){V3}{\textcolor{red}{4}}
+\cnodeput[linecolor=red](-3,2){V3}{\textcolor{red}{5}}
+\cnodeput[linecolor=red](-2,2){V3}{\textcolor{red}{6}}
+
+\cnodeput[linecolor=red](-4,3){V3}{\textcolor{red}{7}}
+\cnodeput[linecolor=red](-3,3){V3}{\textcolor{red}{8}}
+\cnodeput[linecolor=red](-2,3){V3}{\textcolor{red}{9}}
+
+% graph
+ \cnodeput[linecolor=red](5.65,0.7){V7}{\textcolor{red}{7}}
+ \cnodeput[linecolor=red](7,0.1){V8}{\textcolor{red}{8}}
+ \cnodeput[linecolor=red](8.35,0.7){V9}{\textcolor{red}{9}}
+ \cnodeput[linecolor=red](5.1,2){V4}{\textcolor{red}{4}}
+ \cnodeput[linecolor=red](7,2){V5}{\textcolor{red}{5}}
+ \cnodeput[linecolor=red](8.9,2){V6}{\textcolor{red}{6}}
+ \cnodeput[linecolor=red](5.65,3.3){V1}{\textcolor{red}{1}}
+ \cnodeput[linecolor=red](7,3.9){V2}{\textcolor{red}{2}}
+ \cnodeput[linecolor=red](8.35,3.3){V3}{\textcolor{red}{3}}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V1}{V4}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V3}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V3}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V7}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V7}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V9}
+
+\end{pspicture}
+
+\end{figure}
+
+\end{document}
