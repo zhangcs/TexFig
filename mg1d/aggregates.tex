@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-2.75,-0.5)(2.5,1.5)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% line
+    \psline[linewidth=1.75pt]{-}(-3,0)(2.3,0)
+
+% grid
+    \psdot[dotstyle=o,dotsize=7pt](-2.5,0)
+    \psdot[dotstyle=o,dotsize=7pt](-1.75,0)
+    \psdot[dotstyle=o,dotsize=7pt](-1,0)
+    \psdot[dotstyle=o,dotsize=7pt](-0.25,0)
+    \psdot[dotstyle=o,dotsize=7pt](0.5,0)
+    \psdot[dotstyle=o,dotsize=7pt](1.25,0)
+    \psdot[dotstyle=o,dotsize=7pt](2.0,0)
+
+% aggregates
+    \psline[linewidth=0.75pt,linecolor=red](-2.5,1)(-1.78,0.03)
+    \rput(-2.5,1.15){$\mathsf{C}_1$}
+
+    \psline[linewidth=0.75pt,linecolor=black](-2.47,0.03)(-1.75,1)
+    \psline[linewidth=0.75pt,linecolor=black](-1.03,0.03)(-1.75,1)
+    \rput(-1.75,1.15){$\mathsf{C}_2$}
+
+    \psline[linewidth=0.75pt,linecolor=green](-1,1)(-1.72,0.03)
+    \psline[linewidth=0.75pt,linecolor=green](-1,1)(0.5,1)
+    \psline[linewidth=0.75pt,linecolor=green](1.22,0.03)(0.5,1)
+    \rput(-0.25,1.15){$\mathsf{C}_3$}
+
+    \psline[linewidth=0.75pt,linecolor=blue](0.53,0.03)(1.25,1)
+    \psline[linewidth=0.75pt,linecolor=blue](1.25,1)(2,1)
+    \rput(1.625,1.15){$\mathsf{C}_4$}
+
+    \rput(-2.5,-0.15){$1$}
+    \rput(-1.75,-0.15){$2$}
+    \rput(-1,-0.15){$3$}
+    \rput(-0.25,-0.15){$4$}
+    \rput(0.5,-0.15){$5$}
+    \rput(1.25,-0.15){$6$}
+    \rput(2,-0.15){$7$}
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}
