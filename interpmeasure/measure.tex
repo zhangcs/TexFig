@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   Dec/2017: revision
+%   Requires XeLaTeX now, somehow
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+    
+    \psset{unit=5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-1,-1)(1.5,1.5)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% coordinate
+    \psline[linewidth=1.pt]{->}(0,-0.25)(0,0.9)
+    \rput(0.25,0.8){$\text{range}(\widetilde M^{\frac{1}{2}}P)$}
+
+    \psline[linewidth=1.pt]{->}(-0.25,0)(1.,0)
+    \rput(1.25,-0){$\text{null}(P^{T} \widetilde M^{\frac{1}{2}})$}
+
+     \rput(-0.05,-0.05){$o$}
+
+    \psline[linewidth=1.pt]{->}(-0.25,0.1167)(0.75,-0.35)
+    \rput(1,-0.35){$\text{null}(R \widetilde M^{-\frac{1}{2}})$}
+
+% functions
+    \psline[linewidth=1.5pt,plotpoints=300,linecolor=red]{->}(0,0)(0.5,0.5)
+    \rput(0.6,0.56){$\widetilde M^{\frac{1}{2}} e$}  
+
+    \psline[plotpoints=300,linestyle=dotted](0.5,0.5)(0.5,-0.2333)
+
+    \psline[linewidth=1.5pt,plotpoints=300,linecolor=blue,linestyle=dashed]{->}(0,0)(0.5,-0.2333)
+  	\psdot*[dotsize=4pt](0.5,-0.2333)
+  
+    \psline[linewidth=1.5pt,plotpoints=300,linecolor=blue,linestyle=dashed]{->}(0,0)(0.5,0)
+  	\psdot*[dotsize=4pt](0.5,0)
+
+    \psarc(0,0){0.12}{-28}{0}	
+    \rput(0.18,-0.04){$\theta$}  
+    		        
+    \end{pspicture}
+\end{figure}
+
+\end{document}

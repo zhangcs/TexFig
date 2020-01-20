@@ -1,0 +1,139 @@
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+
+\documentclass[11pt]{article}
+%
+%   April/2011: revision
+%
+\usepackage{xcolor,color}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amssymb} %% \mathbb{}
+
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{pst-blur}
+\usepackage{pstricks-add}
+
+\usepackage[top=0.3in, bottom=0.3in, left=0.3in, right=0.3in]{geometry}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+\begin{pspicture}(-1.1,-1.1)(12.1,6)
+\psset{linewidth=1.2pt,unit=1}
+
+%\psgrid[xunit=2.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-2)(5,2)
+
+% stencil1
+\cnodeput[linecolor=blue](0,2){V1}{\textcolor{black}{1}}
+\cnodeput[linecolor=blue](0,0){V2}{\textcolor{black}{2}}
+\cnodeput[linecolor=blue](2,0){V3}{\textcolor{black}{3}}
+\cnodeput[linecolor=red](4,0){V4}{\textcolor{black}{4}}
+\cnodeput[linecolor=red](6,0){V5}{\textcolor{black}{5}}
+\cnodeput[linecolor=red](6,2){V6}{\textcolor{black}{6}}
+\cnodeput[linecolor=black](4,2){V7}{\textcolor{black}{7}}
+\cnodeput[linecolor=black](2,2){V8}{\textcolor{black}{8}}
+
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V2}{V3}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V3}{V4}
+\ncline[linecolor=red, linewidth=0.05cm]{->}{V4}{V5}
+\ncline[linecolor=red, linewidth=0.05cm]{->}{V5}{V6}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V6}{V7}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V7}{V8}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V8}{V3}
+\ncline[linecolor=red, linewidth=0.05cm]{->}{V6}{V4}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V8}{V4}
+
+\end{pspicture}
+
+\end{figure}
+
+%%%%%%%%%
+
+\begin{figure}[hp]
+    \centering
+
+\begin{pspicture}(-1.1,-1.1)(12.1,6)
+\psset{linewidth=1.2pt,unit=1}
+
+%\psgrid[xunit=2.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-2)(5,2)
+
+% stencil1
+\cnodeput[linecolor=blue](0,2){V1}{\textcolor{black}{1}}
+\cnodeput[linecolor=blue](0,0){V2}{\textcolor{black}{2}}
+\cnodeput[linecolor=blue](2,0){V3}{\textcolor{black}{3}}
+\cnodeput[linecolor=red](4,0){V4}{\textcolor{black}{$4^{\prime}$}}
+\cnodeput[linecolor=red](4,2){V7}{\textcolor{black}{7}}
+\cnodeput[linecolor=red](2,2){V8}{\textcolor{black}{8}}
+
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V2}{V3}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V3}{V4}
+\ncline[linecolor=red, linewidth=0.05cm]{<->}{V4}{V7}
+\ncline[linecolor=red, linewidth=0.05cm]{->}{V7}{V8}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V8}{V3}
+\ncline[linecolor=red, linewidth=0.05cm]{->}{V8}{V4}
+
+\end{pspicture}
+
+\end{figure}
+
+%%%%%%%%%
+
+\begin{figure}[hp]
+    \centering
+
+\begin{pspicture}(-1.1,-1.1)(12.1,6)
+\psset{linewidth=1.2pt,unit=1}
+
+%\psgrid[xunit=2.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-2)(5,2)
+
+% stencil1
+\cnodeput[linecolor=blue](0,2){V1}{\textcolor{black}{1}}
+\cnodeput[linecolor=blue](0,0){V2}{\textcolor{black}{2}}
+\cnodeput[linecolor=red](2,0){V3}{\textcolor{black}{3}}
+\cnodeput[linecolor=red](4,0){V4}{\textcolor{black}{$4^{\prime\prime}$}}
+
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V2}{V3}
+\ncline[linecolor=red, linewidth=0.05cm]{<->}{V3}{V4}
+
+\end{pspicture}
+
+\end{figure}
+
+%%%%%%%%%
+
+\begin{figure}[hp]
+    \centering
+
+\begin{pspicture}(-1.1,-1.1)(12.1,6)
+\psset{linewidth=1.2pt,unit=1}
+
+%\psgrid[xunit=2.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-2)(5,2)
+
+% stencil1
+\cnodeput[linecolor=blue](-2,0){V1}{\textcolor{black}{1}}
+\cnodeput[linecolor=blue](0,0){V2}{\textcolor{black}{2}}
+\cnodeput[linecolor=blue](2,0){V3}{\textcolor{black}{$3^{\prime}$}}
+
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V1}{V2}
+\ncline[linecolor=black, linewidth=0.05cm]{->}{V2}{V3}
+
+\end{pspicture}
+
+\end{figure}
+
+\end{document}

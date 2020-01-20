@@ -1,4 +1,11 @@
-\documentclass[12pt]{article}
+%!Mode:: "TeX:UTF-8"
+% filename: test_xeCJK.tex
+%!TEX TS-program = xelatex
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage[slantfont,boldfont]{xeCJK}
+
 \usepackage{amsfonts}
 \usepackage{latexsym}
 \usepackage{amssymb}
@@ -41,13 +48,13 @@
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V7}{V8}
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V8}{V9}
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V9}{V10}
-\put(-0.4,4.9){\scriptsize Finest}
-\put(-0.4,0.9){\scriptsize Coarsest}
+\put(-0.4,4.9){细网格}
+\put(-0.4,0.9){粗网格}
 
-\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](8.0,3.9){V12}{} \put(8.6,3.8){\scriptsize Relaxation}
-\cnodeput[linecolor=black](8.0,3.1){V12}{} \put(8.6,2.95){\scriptsize Exact solving}
-\psline[linecolor=blue, linewidth=0.04cm]{->}(7.8,2.6)(8.2,2.0) \put(8.6,2.1){\scriptsize Restriction}
-\psline[linecolor=red, linewidth=0.04cm]{->}(7.8,1.2)(8.2,1.8) \put(8.6,1.3){\scriptsize Prolongation}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](8.0,3.9){V12}{} \put(8.6,3.8){\scriptsize 磨光}
+\cnodeput[linecolor=black](8.0,3.1){V12}{} \put(8.6,2.95){\scriptsize 精确求解}
+\psline[linecolor=blue, linewidth=0.04cm]{->}(7.8,2.6)(8.2,2.0) \put(8.6,2.1){\scriptsize 限制算子}
+\psline[linecolor=red, linewidth=0.04cm]{->}(7.8,1.2)(8.2,1.8) \put(8.6,1.3){\scriptsize 提升算子}
 \end{pspicture}
 \vskip -0.7cm
   \caption{A schematic description of the V-cycle.} \label{fig_vcycle}
@@ -118,21 +125,21 @@
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V28}{V29}
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V29}{V30}
 
-\put(-1.2,4.9){\scriptsize Finest}
-\put(-1.2,0.9){\scriptsize Coarsest}
+\put(-1.2,4.9){细网格}
+\put(-1.2,0.9){粗网格}
 
 \cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](14,4.4){V32}{}
-\put(14.45,4.4){\scriptsize Relaxation}
-\cnodeput[linecolor=black](14,3.6){V32}{} \put(14.45,3.6){\scriptsize Exact solving}
+\put(14.45,4.3){\scriptsize 磨光}
+\cnodeput[linecolor=black](14,3.6){V32}{} \put(14.45,3.5){\scriptsize 精确求解}
 
 \psline[linecolor=blue, linewidth=0.04cm]{->}(13.8,3.1)(14.2,2.5)
-\put(14.45,2.8){\scriptsize Restriction}
+\put(14.45,2.7){\scriptsize 限制算子}
 
 \psline[linecolor=red, linewidth=0.04cm]{->}(13.8,1.7)(14.2,2.3)
-\put(14.45,2.0){\scriptsize Prolongation}
+\put(14.45,1.9){\scriptsize 提升算子}
 
 \psline[linecolor=red,linewidth=0.06cm,linestyle=dashed]{->}(13.8,0.9)(14.2,1.5)
-\put(14.45,1.2){\scriptsize FMG prolongation}
+\put(14.45,1.1){\scriptsize FMG 提升算子}
 
 \end{pspicture}
 
@@ -163,7 +170,7 @@
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V5}{V6}
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V6}{V7}
 %
-\rput(3.6, 0.0){V--Cycle}
+\rput(3.6, 0.0){V--循环}
 %
 % W-cycle
 \cnodeput*[linecolor=black, fillcolor=black](7.0,4){w1}{ }
@@ -205,21 +212,21 @@
 \ncline[linecolor=red, linewidth=0.04cm]{->}{w13}{w14}
 \ncline[linecolor=red, linewidth=0.04cm]{->}{w14}{w15}
 %
-\rput(10.6, 0.0){W--Cycle}
+\rput(10.6, 0.0){W--循环}
 %
-\rput(1,4){\scriptsize Finest} %{×îÏž²ã}
-\rput(1,1){\scriptsize Coarsest}%{×îŽÖ²ã}
-%\put(0,4.9){\scriptsize Finest}
-%\put(0,0.5){\scriptsize Coarsest}
+\rput(1,4){细网格} %{×îÏž²ã}
+\rput(1,1){粗网格}%{×îŽÖ²ã}
+%\put(0,4.9){\scriptsize 细网格}
+%\put(0,0.5){\scriptsize 粗网格}
 %
-\cnodeput*[linecolor=black, fillcolor=black](15.0,4.0){V16}{ }
-\put(15.5,4.0){\scriptsize Relaxation} %{Ä¥¹â}
-\cnodeput[linecolor=black](15.0,3.0){V17}{ }
-\put(15.5,3.0) {\scriptsize Exact solving} %{Ÿ«È·Çóœâ}
-\psline[linecolor=blue, linewidth=0.04cm]{->}(14.8,2.5)(15.2,1.8)
-\put(15.5,2.0){\scriptsize Restriction} %{ÏÞÖÆ}
-\psline[linecolor=red, linewidth=0.04cm]{->}(14.8,0.8)(15.2,1.4)
-\put(15.5,1.0){\scriptsize Prolongation} %{ÌáÉýÐ£Õý}
+\cnodeput*[linecolor=black, fillcolor=black](15.0,3.2){V16}{ }
+\put(15.5,3.1){\scriptsize 磨光} %{Ä¥¹â}
+\cnodeput[linecolor=black](15.0,2.4){V17}{ }
+\put(15.5,2.3) {\scriptsize 精确求解} %{Ÿ«È·Çóœâ}
+\psline[linecolor=blue, linewidth=0.04cm]{->}(14.8,1.9)(15.2,1.3)
+\put(15.5,1.5){\scriptsize 限制算子} %{ÏÞÖÆ}
+\psline[linecolor=red, linewidth=0.04cm]{->}(14.8,0.5)(15.2,1.1)
+\put(15.5,0.7){\scriptsize 提升算子} %{ÌáÉýÐ£Õý}
 \end{pspicture}
 %
   \caption{V-cycle and W-cycle} 
@@ -242,23 +249,21 @@
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V5}{V6}
 \ncline[linecolor=red, linewidth=0.04cm]{->}{V6}{V7}
 %
-\rput(5.6, 0.0){Cascade multigrid}
+\rput(3.6, 0.0){瀑布型多重网格}
 %
-\rput(2.5,4){\scriptsize Finest} %{×îÏž²ã}
-\rput(2.5,1){\scriptsize Coarsest}%{×îŽÖ²ã}
-%\put(0,4.9){\scriptsize Finest}
-%\put(0,0.5){\scriptsize Coarsest}
+\rput(2.5,4){细网格} %{×îÏž²ã}
+\rput(2.5,1){粗网格}%{×îŽÖ²ã}
+%\put(0,4.9){\scriptsize 细网格}
+%\put(0,0.5){\scriptsize 粗网格}
 %
-\cnodeput*[linecolor=black, fillcolor=black](6.0,4.0){V16}{ }
-\put(6.5,4.0){\scriptsize Relaxation} %{Ä¥¹â}
-\cnodeput[linecolor=black](6.0,3.0){V17}{ }
-\put(6.5,3.0) {\scriptsize Exact solving} %{Ÿ«È·Çóœâ}
-\psline[linecolor=blue, linewidth=0.04cm]{->}(5.8,2.5)(6.2,1.8)
-\put(6.5,2.0){\scriptsize Restriction} %{ÏÞÖÆ}
-\psline[linecolor=red, linewidth=0.04cm]{->}(5.8,0.8)(6.2,1.4)
-\put(6.5,1.0){\scriptsize Prolongation} %{ÌáÉýÐ£Õý}
+\cnodeput*[linecolor=black, fillcolor=black](7.0,3.2){V16}{ }
+\put(7.5,3.1){\scriptsize 磨光} %{Ä¥¹â}
+\cnodeput[linecolor=black](7.0,2.4){V17}{ }
+\put(7.5,2.3) {\scriptsize 精确求解} %{Ÿ«È·Çóœâ}
+\psline[linecolor=red, linewidth=0.04cm]{->}(6.8,1.3)(7.2,1.90)
+\put(7.5,1.5){\scriptsize 提升算子} %{ÌáÉýÐ£Õý}
 \end{pspicture}
-  \caption{Cascade multigrid method} 
+  \caption{Cascadic multigrid} 
 \end{center}
 \end{figure}
 
@@ -280,11 +285,11 @@
 
 \thicklines
 \put(12, 16){\textcolor{red}{\vector(0, 1){25}}}
-\put(-32, 28){\textcolor{red}{{Prolongation}}}
+\put(-32, 28){\textcolor{red}{{提升算子}}}
 \put(88, 43){\textcolor{blue}{\vector(0, -1){25}}}
-\put(91, 28){\textcolor{blue}{{Restriction}}}
-\put(85, 5){Coarsest Grid}
-\put(85, 52){Finest Grid}
+\put(91, 28){\textcolor{blue}{{限制算子}}}
+\put(85, 5){粗网格}
+\put(85, 52){细网格}
 \end{picture}
 \end{center}
 \vskip -0.5cm

@@ -1,0 +1,115 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX TS-program = xelatex
+
+\documentclass[11pt]{article}
+%
+%   April/2011: revision
+%
+\usepackage{xcolor,color}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amssymb} %% \mathbb{}
+
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{pst-blur}
+\usepackage{pstricks-add}
+
+\usepackage[top=0.3in, bottom=0.3in, left=0.3in, right=0.3in]{geometry}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+\begin{pspicture}(-1.1,-1.1)(12.1,6)
+\psset{linewidth=1.2pt,unit=1}
+
+% finite difference mesh
+\psgrid[subgriddiv=1, griddots=-1, gridwidth=0.55pt, gridlabels=0pt](-2,-2)(4,4)
+
+\cnodeput[linecolor=red](-1,-1){V3}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](0,-1){V3}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](1,-1){V3}{\textcolor{red}{3}}
+\cnodeput[linecolor=red](2,-1){V3}{\textcolor{red}{4}}
+\cnodeput[linecolor=red](3,-1){V3}{\textcolor{red}{5}}
+
+\cnodeput[linecolor=red](-1,0){V3}{\textcolor{red}{6}}
+\cnodeput[linecolor=red](0,0){V3}{\textcolor{red}{7}}
+\cnodeput[linecolor=red](1,0){V3}{\textcolor{red}{8}}
+\cnodeput[linecolor=red](2,0){V3}{\textcolor{red}{9}}
+\cnodeput[linecolor=red](3,0){V3}{\textcolor{red}{10}}
+
+\cnodeput[linecolor=red](-1,1){V3}{\textcolor{red}{11}}
+\cnodeput[linecolor=red](0,1){V3}{\textcolor{red}{12}}
+\cnodeput[linecolor=red](1,1){V3}{\textcolor{red}{13}}
+\cnodeput[linecolor=red](2,1){V3}{\textcolor{red}{14}}
+\cnodeput[linecolor=red](3,1){V3}{\textcolor{red}{15}}
+
+\cnodeput[linecolor=red](-1,2){V3}{\textcolor{red}{16}}
+\cnodeput[linecolor=red](0,2){V3}{\textcolor{red}{17}}
+\cnodeput[linecolor=red](1,2){V3}{\textcolor{red}{18}}
+\cnodeput[linecolor=red](2,2){V3}{\textcolor{red}{19}}
+\cnodeput[linecolor=red](3,2){V3}{\textcolor{red}{20}}
+
+\cnodeput[linecolor=red](-1,3){V3}{\textcolor{red}{21}}
+\cnodeput[linecolor=red](0,3){V3}{\textcolor{red}{22}}
+\cnodeput[linecolor=red](1,3){V3}{\textcolor{red}{23}}
+\cnodeput[linecolor=red](2,3){V3}{\textcolor{red}{24}}
+\cnodeput[linecolor=red](3,3){V3}{\textcolor{red}{25}}
+
+% stencil1
+\cnodeput[linecolor=red](6.5,1){V5}{\textcolor{red}{4}}
+\cnodeput[linecolor=blue](6.5,0){V8}{\textcolor{blue}{-1}}
+\cnodeput[linecolor=blue](5.5,1){V4}{\textcolor{blue}{-1}}
+\cnodeput[linecolor=blue](7.5,1){V6}{\textcolor{blue}{-1}}
+\cnodeput[linecolor=blue](6.5,2){V2}{\textcolor{blue}{-1}}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V8}
+
+% stencil2
+\cnodeput[linecolor=red](11,1){V5}{\textcolor{red}{20}}
+\cnodeput[linecolor=blue](11,0){V8}{\textcolor{blue}{-8}}
+\cnodeput[linecolor=blue](10,1){V4}{\textcolor{blue}{-8}}
+\cnodeput[linecolor=blue](12,1){V6}{\textcolor{blue}{-8}}
+\cnodeput[linecolor=blue](11,2){V2}{\textcolor{blue}{-8}}
+\cnodeput[linecolor=red](12,0){V9}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](12,2){V12}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](10,0){V14}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](10,2){V15}{\textcolor{red}{2}}
+\cnodeput[linecolor=red](11,-1){V10}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](13,1){V11}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](11,3){V13}{\textcolor{red}{1}}
+\cnodeput[linecolor=red](9,1){V16}{\textcolor{red}{1}}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V13}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V15}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V2}{V12}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V16}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V15}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V14}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V4}{V5}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V6}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V12}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V11}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V6}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V5}{V8}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V10}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V9}
+\ncline[linecolor=black, linewidth=0.03cm]{-}{V8}{V14}
+
+\end{pspicture}
+
+\end{figure}
+
+\end{document}

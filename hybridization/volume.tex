@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\usepackage[usenames]{pstricks}
+\usepackage{pst-coil}
+\usepackage{pst-node}
+\usepackage{xcolor}
+
+\newcommand{\recv}{\psCoil[coilaspect=0,coilheight=0.9,coilwidth=0.3,linewidth=1.5pt,linecolor=Goldenrod]{0}{1440}}
+\newcommand{\send}{\psCoil[coilaspect=0,coilheight=0.9,coilwidth=0.3,linewidth=1.5pt,linecolor=Red]{0}{1440}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\psset{griddots=5,subgriddiv=0,gridlabels=0pt}
+
+\begin{pspicture}(-2,-3)(13,3)
+
+% coordinates
+%\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-6,-2)(14,4)
+
+%%%%%
+%  2D   %
+%%%%%
+
+% origiinal
+\psline[linewidth=1.5pt]{-}(-5,2)(-1,2)
+\psline[linewidth=1.5pt]{-}(-5,0)(-1,0)
+\psline[linewidth=1.5pt]{-}(-1,2)(-1,0)
+\psline[linewidth=1.5pt]{-}(-5,2)(-5,0)
+
+\psline[linewidth=1.5pt]{-}(-3,2)(-3,0)
+\rput(-4,1){$T_{2}$}
+\rput(-2,1){$T_{2}$}
+
+% hybrid1
+\psline[linewidth=1.5pt]{-}(0,2)(2,2)
+\psline[linewidth=1.5pt]{-}(0,0)(2,0)
+\psline[linewidth=1.5pt]{-}(0,0)(0,2)
+\psline[linewidth=1pt,linestyle=dashed,linecolor=blue]{-}(2,2)(2,0)
+\rput(1.75,1){$T_{1}$}
+
+% hybrid2
+\psline[linewidth=1.5pt]{-}(2.5,2)(4.5,2)
+\psline[linewidth=1.5pt]{-}(2.5,0)(4.5,0)
+\psline[linewidth=1.5pt]{-}(4.5,0)(4.5,2)
+\psline[linewidth=1pt,linestyle=dashed,linecolor=blue]{-}(2.5,0)(2.5,2)
+\rput(2.8,1){$T_{1}$}
+
+\psline[linewidth=3pt,linecolor=red]{-}(2.25,0)(2.25,2)
+\rput(2.25,2.3){$F_{1}$}
+
+%%%%%
+%  1D   %
+%%%%%
+
+% original
+\psline[linewidth=1.5pt]{-}(6,1)(9,1)
+\psline[linewidth=1.5pt]{-}(7.5,2.5)(7.5,-0.5)
+\rput(8.5,1.25){$T_{1}$}
+
+% hybrid
+\psline[linewidth=1.5pt]{-}(10,1)(13,1)
+\psline[linewidth=1.5pt]{-}(11.5,2.5)(11.5,-0.5)
+\pscircle*[linecolor=red](11.5,1){4pt}
+\rput(12.5,1.25){$T_{1}$}
+\rput(11.15,1.25){$F_{0}$}
+
+\end{pspicture}
+
+\end{document}

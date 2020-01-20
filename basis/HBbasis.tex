@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=3cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-2.5,-0.25)(1.5,4)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% HB level 0
+    \psline[linewidth=1.5pt]{-}(-0.2,0)(1.2,0)
+    \psline[linewidth=1.5pt]{-}(0,0)(0,0.03)
+    \psline[linewidth=1.5pt]{-}(0.5,0)(0.5,0.03)
+    \psline[linewidth=1.5pt]{-}(1,0)(1,0.03)
+
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(1,0)(0.5,0.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0,0)(0.5,0.75)
+
+    \rput(1.25,0.5){$\hat\psi_{0,i}$}
+
+% HB level 1
+    \psline[linewidth=1.5pt]{-}(-0.2,1)(1.2,1)
+    \psline[linewidth=1.5pt]{-}(0,1)(0,1.03)
+    \psline[linewidth=1.5pt]{-}(0.25,1)(0.25,1.03)
+    \psline[linewidth=1.5pt]{-}(0.5,1)(0.5,1.03)
+    \psline[linewidth=1.5pt]{-}(0.75,1)(0.75,1.03)
+    \psline[linewidth=1.5pt]{-}(1,1)(1,1.03)
+
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(1,1)(0.75,1.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.5,1)(0.75,1.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0,1)(0.25,1.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.5,1)(0.25,1.75)
+
+    \rput(1.25,1.5){$\hat\psi_{1,i}$}
+
+% HB level 2
+    \psline[linewidth=1.5pt]{-}(-0.2,2)(1.2,2)
+    \psline[linewidth=1.5pt]{-}(0,2)(0,2.03)
+    \psline[linewidth=1.5pt]{-}(0.125,2)(0.125,2.03)
+    \psline[linewidth=1.5pt]{-}(0.25,2)(0.25,2.03)
+    \psline[linewidth=1.5pt]{-}(0.375,2)(0.375,2.03)
+    \psline[linewidth=1.5pt]{-}(0.5,2)(0.5,2.03)
+    \psline[linewidth=1.5pt]{-}(0.625,2)(0.625,2.03)
+    \psline[linewidth=1.5pt]{-}(0.75,2)(0.75,2.03)
+    \psline[linewidth=1.5pt]{-}(0.875,2)(0.875,2.03)
+    \psline[linewidth=1.5pt]{-}(1,2)(1,2.03)
+
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(1,2)(0.875,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.75,2)(0.875,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.75,2)(0.625,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.5,2)(0.625,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.5,2)(0.375,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.25,2)(0.375,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0,2)(0.125,2.75)
+    \psline[linewidth=0.75pt,linecolor=blue]{-}(0.25,2)(0.125,2.75)
+
+    \rput(1.25,2.5){$\hat\psi_{2,i}$}
+
+% nodal basis level 0
+    \psline[linewidth=1.5pt]{-}(-2.2,0)(-0.8,0)
+    \psline[linewidth=1.5pt]{-}(-2,0)(-2,0.03)
+    \psline[linewidth=1.5pt]{-}(-1.5,0)(-1.5,0.03)
+    \psline[linewidth=1.5pt]{-}(-1,0)(-1,0.03)
+
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-2,0)(-1.5,0.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1,0)(-1.5,0.75)
+        
+    \rput(-0.75,0.5){$\psi_{0,i}$}
+
+% nodal basis level 1
+    \psline[linewidth=1.5pt]{-}(-2.2,1)(-0.8,1)
+    \psline[linewidth=1.5pt]{-}(-2,1)(-2,1.03)
+    \psline[linewidth=1.5pt]{-}(-1.25,1)(-1.25,1.03)
+    \psline[linewidth=1.5pt]{-}(-1.5,1)(-1.5,1.03)
+    \psline[linewidth=1.5pt]{-}(-1.75,1)(-1.75,1.03)
+    \psline[linewidth=1.5pt]{-}(-1,1)(-1,1.03)
+
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-2,1)(-1.75,1.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.5,1)(-1.75,1.75)
+        
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.75,1)(-1.5,1.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.25,1)(-1.5,1.75)
+    
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1,1)(-1.25,1.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.5,1)(-1.25,1.75)
+    
+    \rput(-0.75,1.5){$\psi_{1,i}$}
+
+% nodal basis level 2
+    \psline[linewidth=1.5pt]{-}(-2.2,2)(-0.8,2)
+    \psline[linewidth=1.5pt]{-}(-2,2)(-2,2.03)
+    \psline[linewidth=1.5pt]{-}(-1.25,2)(-1.25,2.03)
+    \psline[linewidth=1.5pt]{-}(-1.5,2)(-1.5,2.03)
+    \psline[linewidth=1.5pt]{-}(-1.75,2)(-1.75,2.03)
+    \psline[linewidth=1.5pt]{-}(-1,2)(-1,2.03)
+
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-2,2)(-1.875,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.75,2)(-1.875,2.75)
+
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.875,2)(-1.75,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.625,2)(-1.75,2.75)
+    
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.75,2)(-1.625,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.5,2)(-1.625,2.75)
+    
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.625,2)(-1.5,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.375,2)(-1.5,2.75)
+    
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.5,2)(-1.375,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.25,2)(-1.375,2.75)
+    
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.125,2)(-1.25,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.375,2)(-1.25,2.75)
+
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1,2)(-1.125,2.75)
+    \psline[linewidth=0.75pt,linecolor=green]{-}(-1.25,2)(-1.125,2.75)
+    
+    \rput(-0.75,2.5){$\psi_{2,i}$}
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}
