@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+\psset{xunit=1,yunit=4}
+\begin{pspicture}(0,-0.25)(190,1.25)
+  \psgrid[subgriddiv=0,%
+  	griddots=5,%
+  	gridlabels=0,%
+  	xunit=1,%
+  	yunit=0.25](12,4)
+  \psaxes[linewidth=1.5pt,%
+  	ticksize=4pt,
+  	Dx=1,Dy=0.25]{->}(12.5,1.2)
+  \uput{0.5}[-30](12.5,0){$x$}
+  \uput{0.7}[90](0,1.1){$v(x)$}
+  %
+  \rput(6,-0.2){$\Omega_{h}$}
+  \pscurve[showpoints=true]{-}(0,0.5)(1,0.95)(2,0.65)(3,0.05)(4,0.4)(5,1)(6,0.55)(7,0)(8,0.475)(9,0.88)(10,0.45)(11,0.05)(12,0.5)
+\end{pspicture}
+\end{figure}
+
+\begin{figure}[hp]
+    \centering
+\psset{xunit=1,yunit=4}
+\begin{pspicture}(0,-0.25)(190,1.25)
+  \psgrid[subgriddiv=0,%
+  	griddots=5,%
+  	gridlabels=0,%
+  	xunit=1,%
+  	yunit=0.25](12,4)
+  \psaxes[linewidth=1.5pt,%
+  	ticksize=4pt,
+  	Dx=2,Dy=0.25]{->}(12.5,1.2)
+  \uput{0.5}[-30](12.5,0){$x$}
+  \uput{0.7}[90](0,1.1){$v(x)$}
+  %
+   \rput(6,-0.2){$\Omega_{2h}$}
+   \pscurve[showpoints=true]{-}(0,0.5)(2,0.65)(4,0.4)(6,0.55)(8,0.475)(10,0.45)(12,0.5)
+\end{pspicture}
+\end{figure}
+
+\end{document}

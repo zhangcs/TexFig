@@ -21,16 +21,19 @@
     %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
 
 % grid
-    \psline[linewidth=1.5pt]{-}(-1.5,0)(1.5,0)
     \psline[linewidth=1.5pt]{-}(-1.5,0.5)(1.5,0.5)
     \psline[linewidth=1.5pt]{-}(-1.5,1)(1.5,1)
     \psline[linewidth=1.5pt]{-}(-1.5,1.5)(1.5,1.5)
-
+    
     \psline[linewidth=1.5pt]{-}(-1.5,1.5)(-1.5,0)
     \psline[linewidth=1.5pt]{-}(-0.5,1.5)(-0.5,0)
     \psline[linewidth=1.5pt]{-}(0.5,1.5)(0.5,0)
     \psline[linewidth=1.5pt]{-}(1.5,1.5)(1.5,0)
-
+% well    
+    \psline[doubleline=true,linecolor=red,linewidth=1.2pt](0,2)(0,1)
+    \psline[doubleline=true,linecolor=red,linewidth=1.2pt,linestyle=dashed](0,1.2)(0,0)
+    \psline[linewidth=1.5pt]{-}(-1.5,0)(1.5,0)
+%
     \rput(-1.3,0.3){1}	
     \rput(-0.3,0.3){2}	
     \rput(0.7,0.3){3}	
@@ -42,10 +45,6 @@
     \rput(-1.3,1.3){7}	
     \rput(-0.3,1.3){8}	
     \rput(0.7,1.3){9}	
-
-% well    
-    \psline[doubleline=true,linecolor=red,linewidth=1.2pt](0,2)(0,1)
-    \psline[doubleline=true,linecolor=red,linewidth=1.2pt,linestyle=dashed](0,1.2)(0,0)
       		       
 % matrix original
    \psdot[dotstyle=square*,dotsize=0.15](-2.5,-1.1)

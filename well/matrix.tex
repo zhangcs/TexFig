@@ -1,0 +1,123 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{amsart}
+%
+%   April/2011: revision
+%
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,subfigure}
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+
+    \psset{unit=2.5cm}
+    \newgray{mygray}{0.9}
+
+    \begin{pspicture}*(-3,-6)(3,2)
+    %\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-5,-5)(5,5)
+
+% grid
+    \psline[linewidth=1.5pt]{-}(-1,-.5)(1,-.5)
+    \psline[linewidth=1.5pt]{-}(-1,-.5)(-1,1.5)
+    \psline[linewidth=1.5pt]{-}(-1,1.5)(1,1.5)
+    \psline[linewidth=1.5pt]{-}(1,1.5)(1,-.5)
+%
+    \psline[linewidth=1.5pt]{-}(-0.333,1.5)(-0.333,-.5)
+    \psline[linewidth=1.5pt]{-}(0.333,1.5)(0.333,-.5)
+    \psline[linewidth=1.5pt]{-}(-1,0.167)(1,0.167)
+    \psline[linewidth=1.5pt]{-}(-1,0.833)(1,0.833)
+%
+    \rput(-.9,-0.35){1}	
+    \rput(-.225,-0.35){2}	
+    \rput(0.45,-0.35){3}	
+    \rput(-.9,0.325){4}	
+    \rput(-.225,0.325){5}	
+    \rput(0.45,0.325){6}	
+    \rput(-.9,1){7}	
+    \rput(-.225,1){8}	
+    \rput(0.45,1){9}	
+% well
+    \rput(-0.667,-0.167){\small$\times$}
+    \rput(-0.475,-0.25){\small W1}
+    \psdot[dotstyle=*,dotsize=0.05,fillcolor=black](0.667,1.167)    
+    \rput(0.8,1.3){\small W2}
+% matrix original
+   \psdot[dotstyle=square*,dotsize=0.15](-0.9,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.7,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.9,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.7,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.5,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.7,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.5,-1.5)
+%
+   \psdot[dotstyle=square*,dotsize=0.15](-0.3,-1.1)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.1,-1.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.3,-1.5)
+   \psdot[dotstyle=square*,dotsize=0.15](0.1,-1.5)
+%
+   \psdot[dotstyle=square*,dotsize=0.15](-0.9,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.5,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.7,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.5,-2.1)
+%   		
+   \psdot[dotstyle=square*,dotsize=0.15](-0.3,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.1,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.3,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.1,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](0.1,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.1,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](0.1,-2.1)
+%
+   \psdot[dotstyle=square*,dotsize=0.15](0.3,-1.7)
+   \psdot[dotstyle=square*,dotsize=0.15](0.5,-1.9)
+   \psdot[dotstyle=square*,dotsize=0.15](0.7,-2.1)
+   \psdot[dotstyle=square*,dotsize=0.15](0.3,-2.1)
+%
+   \psdot[dotstyle=square*,dotsize=0.15](-0.3,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](0.1,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](-0.1,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](0.1,-2.7)
+%
+   \psdot[dotstyle=square*,dotsize=0.15](0.3,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](0.5,-2.3)
+   \psdot[dotstyle=square*,dotsize=0.15](0.7,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](0.3,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](0.5,-2.5)
+   \psdot[dotstyle=square*,dotsize=0.15](0.5,-2.7)
+   \psdot[dotstyle=square*,dotsize=0.15](0.7,-2.7)
+%
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.85,-2.85)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.9,-2.9)
+%   
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](-0.95,-2.85)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](-0.9,-2.85)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](-0.85,-2.85)
+
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.65,-2.9)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.7,-2.9)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.75,-2.9)      
+%   
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.85,-1.05)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.85,-1.1)   
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.85,-1.15)   
+      
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.9,-2.65)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.9,-2.7)
+   \psdot[dotstyle=*,dotsize=0.04,fillcolor=black](0.9,-2.75)      
+%
+    \psline[linewidth=1.5pt](-1,-1)(-1,-3)
+    \psline[linewidth=1.5pt](1,-1)(1,-3)
+    \psline[linewidth=1.5pt](-1,-1)(1,-1)
+    \psline[linewidth=1.5pt](-1,-3)(1,-3)
+
+    \psline[linecolor=red,linewidth=0.5pt](0.8,-1)(0.8,-3)
+    \psline[linecolor=red,linewidth=0.5pt](-1,-2.8)(1,-2.8)
+
+    \end{pspicture}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,182 @@
+%!Mode:: "TeX:UTF-8"
+% filename: test_xeCJK.tex
+%!TEX TS-program = xelatex
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage[slantfont,boldfont]{xeCJK}
+
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{flafter}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.6in]{geometry}
+%
+\usepackage[algo2e,ruled,linesnumbered,vlined]{algorithm2e}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{pst-plot}
+\usepackage{pst-node}
+\usepackage{pst-math}
+
+\pagestyle{plain}
+\begin{document}
+
+\begin{figure}[h!!]
+\begin{center}
+%
+\psset{unit=1.2cm}
+
+\begin{pspicture}(-8,0)(8,8)
+%\psgrid[xunit=1.0,subgriddiv=2,griddots=1,gridlabels=8pt](0,0)(-8,-8)(8,8)
+% Coarse Grid
+\put(2.5,-5.25){粗网格}
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-4,-5)(2,-5)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-3,-4)(3,-4)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-2,-3)(4,-3)
+%
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-3.5,-5.5)(-0.5,-2.5)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-1.5,-5.5)(1.5,-2.5)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(0.5,-5.5)(3.5,-2.5)
+% Coarse Grid Vertices
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-1,-3){V0}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](1,-3){V1}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](3,-3){V2}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-2,-4){V3}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](0,-4){V4}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](2,-4){V5}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-3,-5){V6}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-1,-5){V7}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](1,-5){V8}{}
+% Fine Grid
+\put(2.5,0.75){细网格}
+\pspolygon[fillstyle=solid,fillcolor=gray](-1.5,1.5)(0.5,1.5)(1.5,2.5)(-0.5,2.5)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-4,1)(2,1)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-3,2)(3,2)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-2,3)(4,3)
+%
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-3.5,0.5)(-.5,3.5)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(-1.5,0.5)(1.5,3.5)
+\pcline[linecolor=blue, linewidth=0.04cm]{-}(0.5,0.5)(3.5,3.5)
+%
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-4.5,0.5)(1.5,0.5)
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-3.5,1.5)(2.5,1.5)
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-2.5,2.5)(3.5,2.5)
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-1.5,3.5)(4.5,3.5)
+%
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-4.5,0.5)(-1.5,3.5)
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-2.5,0.5)(0.5,3.5)
+\pcline[linecolor=red, linewidth=0.04cm]{-}(-0.5,0.5)(2.5,3.5)
+\pcline[linecolor=red, linewidth=0.04cm]{-}(1.5,0.5)(4.5,3.5)
+% Coarse Grid Vertices
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-1,3){C0}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](1,3){C1}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](3,3){C2}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-2,2){C3}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](0,2){C4}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](2,2){C5}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-3,1){C6}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](-1,1){C7}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=black](1,1){C8}{}
+% Fine Grid Vertices
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-2,3){F10}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](0,3){F11}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](2,3){F12}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](4,3){F13}{}
+%
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-3,2){F20}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-1,2){F21}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](1,2){F22}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](3,2){F23}{}
+%
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-4,1){F30}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-2,1){F31}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](0,1){F32}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](2,1){F33}{}
+%
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-4.5,0.5){F40}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-3.5,0.5){F41}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-2.5,0.5){F42}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-1.5,0.5){F43}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-0.5,0.5){F44}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](0.5,0.5){F45}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](1.5,0.5){F46}{}
+%
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-3.5,1.5){F50}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-2.5,1.5){F51}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-1.5,1.5){F52}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-0.5,1.5){F53}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](0.5,1.5){F54}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](1.5,1.5){F55}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](2.5,1.5){F56}{}
+%
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-2.5,2.5){F60}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-1.5,2.5){F61}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-0.5,2.5){F62}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](0.5,2.5){F63}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](1.5,2.5){F64}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](2.5,2.5){F65}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](3.5,2.5){F66}{}
+%
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-1.5,3.5){F70}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](-.5,3.5){F71}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](0.5,3.5){F72}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](1.5,3.5){F73}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](2.5,3.5){F74}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](3.5,3.5){F75}{}
+\cnodeput[linecolor=black,fillstyle=solid,fillcolor=white](4.5,3.5){F76}{}
+% Connection
+\pnode(-1.23,0.5){B1}
+\pnode(0.4,0.5){B2}
+\pnode(1.05,0.5){B3}
+\ncline[linecolor=black, linewidth=0.02cm]{-}{B3}{V4}
+\ncline[linecolor=black, linewidth=0.02cm]{-}{B2}{V4}
+\ncline[linecolor=black, linewidth=0.02cm]{-}{B1}{V4}
+\ncline[linecolor=black, linewidth=0.02cm, linestyle=dashed]{-}{B1}{F52}
+\ncline[linecolor=black, linewidth=0.02cm, linestyle=dashed]{-}{B2}{F54}
+\ncline[linecolor=black, linewidth=0.02cm, linestyle=dashed]{-}{B3}{F64}
+\ncline[linecolor=black, linewidth=0.02cm, linestyle=dashed]{-}{F62}{V4}
+%
+\put(5,0.75){限制算子}
+\psline[linecolor=black, linewidth=0.15cm]{->}(4.75,1.5)(4.75,0) 
+\put(4,2.25){ $I^{2h}_{h} = \frac{\displaystyle 1}{\displaystyle 16}\left[
+	\begin{array}{ccc}
+	1 & 2 & 1\\[5pt]
+	2 & 4 & 2\\[5pt]
+	1 & 2 & 1
+	\end{array}
+	\right]_{h}$}
+%
+\put(5,-2.45){插值算子}
+\psline[linecolor=black, linewidth=0.15cm]{->}(4.75,-3)(4.75,-1.5) 
+\put(4,-4){ $I_{2h}^{h} = \frac{\displaystyle 1}{\displaystyle 4}\left]
+	\begin{array}{ccc}
+	1 & 2 & 1\\[5pt]
+	2 & 4 & 2\\[5pt]
+	1 & 2 & 1
+	\end{array}
+	\right[_{h}$}
+%
+\put(-8,2.25){ $A_{h} = \frac{\displaystyle 1}{\displaystyle h^{2}}\left[
+	\begin{array}{ccc}
+	    & -1 & \\[5pt]
+	-1 & 4  & -1\\[5pt]
+	    & -1 & 
+	\end{array}
+	\right]_{h}$}
+%
+\put(-8,-4){ $A_{2h} = \frac{\displaystyle 1}{\displaystyle 4h^{2}}\left[
+	\begin{array}{ccc}
+	    & -1 & \\[5pt]
+	-1 & 4  & -1\\[5pt]
+	    & -1 & 
+	\end{array}
+	\right]_{2h}$}
+%
+\end{pspicture}
+\end{center}
+\end{figure}
+
+\end{document}

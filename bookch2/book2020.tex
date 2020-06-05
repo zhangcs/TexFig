@@ -1,0 +1,667 @@
+\documentclass[12pt]{cctart}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+%\usepackage{epsf}
+\usepackage{indentfirst}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{flafter}
+\usepackage{xcolor}
+\usepackage{float}
+
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{graphpap}
+\usepackage{pifont}
+
+\usepackage{epsf}
+\usepackage{mdwlist}
+\usepackage{lineno}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{flafter}
+\usepackage{epic,eepic}
+\usepackage{cases}
+\usepackage{color,soul}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{dsfont} %% \mathds{}
+\usepackage{amssymb} %% \mathbb{}
+\usepackage{multirow}
+\usepackage{chapterbib}
+\usepackage{titlesec} %% Appendix
+\usepackage{titletoc}
+\usepackage[CJKbookmarks=true]{hyperref}
+\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.6in]{geometry}
+%\usepackage[algo2e,linesnumbered,boxed,ruled]{algorithm2e}
+\usepackage[algo2e,ruled,linesnumbered,vlined]{algorithm2e}
+%lined,boxed,commentsnumbered, ruled
+
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-plot}
+\usepackage{pst-node}
+\usepackage{pst-math}
+
+\newcommand{\ep}{\hfill\rule{0.15cm}{0.35cm}\vskip 0.3cm}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\pagestyle{plain}
+
+
+
+% functional space
+
+%\linespread{1.4}
+
+\begin{document}
+
+\title{油藏数值中的线性代数求解方法插图}
+\author{冯春生}
+\maketitle
+
+%\section{1}
+
+%\begin{description}
+
+%\item[(图2.1)]
+
+
+
+% 2.1
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(180,0)
+%    \rput[tr](170,-5){$P$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,120){\rotatebox{90}{毛细管压力 $p_{c}$}}
+
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](30,115){C1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](115,-10){C2}
+   \ncarc[arcangle=-33,linewidth=0.08cm]{->}{C1}{C2}
+   \psline[linecolor=black,linestyle=dashed](30,115)(30,0)
+   \psline[linecolor=black]{<-}(65,30)(100,65)
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](65,28){C12}
+%   \ncarc[arcangle=-20,linewidth=0.06cm]{->}{C1}{C12}
+%      \ncarc[arcangle=-20,linewidth=0.06cm]{->}{C12}{C2}
+%   \rput[tr](135,75){imbibition}
+   \rput[tr](120,75){吸渗}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](30,115){C4}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](115,25){C5}
+   \rput[tr](130,25){$p_{cb}$}
+   \ncarc[linecolor=red,linewidth=0.08cm,arcangle=-33]{<-}{C4}{C5}
+   \psline[linecolor=black,linestyle=dashed](115,25)(115,0)
+   \psline[linecolor=black]{<-}(100,30)(115,50)
+%   \rput[tr](135,60){drainage}
+   \rput[tr](135,60){驱替}
+
+   \rput[tr](-5,8){$0$}
+   \psline[linecolor=black](0,0)(0,-13)
+   \psline[linecolor=black](30,0)(30,-13)
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](0,-8){A11}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](30,-8){A12}
+   \ncline[linecolor=black]{<->}{A11}{A12}
+   \ncput*{$S_{wc}$}
+
+   \rput[tr](85,-5){ 饱和度 $S_{w}$}
+
+
+   \psline[linecolor=black](115,0)(115,-13)
+   \psline[linecolor=black](145,0)(145,-13)
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](115,-8){A21}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](145,-8){A22}
+   \ncline[linecolor=black]{<->}{A21}{A22}
+   \ncput*{$S_{nc}$}
+   \rput[tr](147,8){$1$}
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第9页，图2.1}
+\end{figure}
+
+
+\vskip 2.0cm
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力 $p$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){ \rotatebox{90}{黏度 $\mu$}}
+
+    \psline[linecolor=black,linewidth=0.08cm](15,100)(135,100)
+    \rput[tr](75,110){$\mu_o, \mu_{w}$}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](15,50){C1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](75,65){C2}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](74.8,64.9){C3}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](135,75){C4}
+   \ncarc[arcangle=-15,linecolor=red,linewidth=0.08cm]{-}{C1}{C2}
+   \ncarc[arcangle=15,linecolor=red,linewidth=0.08cm]{-}{C3}{C4}
+   \rput[tr](45,63){$\mu_{g}$}
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第10页，图2.2}
+\end{figure}
+
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力 $p$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){\rotatebox{90}{原油黏度 $\mu_{o}$}}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](15,115){C1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](80,20){C2}
+   \ncarc[arcangle=-35,linecolor=black,linewidth=0.08cm]{-}{C1}{C2}
+   \psline[linecolor=black,linecolor=red,linewidth=0.08cm](80,20)(135,70)
+   \psline[linecolor=black,linestyle=dashed](80,20)(80,0)
+   \rput[tr](75,10){$p_{b}$}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](0,120){A1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](80,120){A12}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](80,0){B12}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](145,120){A2}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](145,0){B2}
+
+   \ncline[linecolor=black]{<->}{A1}{A12}
+   \ncput*{饱和态}
+   \ncline[linecolor=black]{<->}{A12}{A2}
+   \ncput*{非饱和态}
+   \ncline[linecolor=black,linestyle=dashed]{-}{A2}{B2}
+   \ncline[linecolor=black,linestyle=dashed]{-}{A12}{B12}
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第10页，图2.3}
+\end{figure}
+\vskip 2.0cm
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力$p$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){\rotatebox{90}{油黏度 $\mu_{o}$}}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](15,115){C1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](130,20){C2}
+   \ncarc[arcangle=-45,linecolor=black,linewidth=0.08cm]{-}{C1}{C2}
+   \psline[linecolor=black,linestyle=dashed](55,48)(55,0)
+   \psline[linecolor=black,linestyle=dashed,linecolor=red,linewidth=0.08cm](55,48)(100,100)
+   \rput[tr](53,10){$p_{b_1}$}
+   \psline[linecolor=black,linestyle=dashed](80,31.5)(80,0)
+   \psline[linecolor=black,linestyle=dashed,linecolor=red,linewidth=0.08cm](80,31.5)(120,80)
+   \rput[tr](78,10){$p_{b_2}$}
+   \psline[linecolor=black,linestyle=dashed](105,22)(105,0)
+   \psline[linecolor=black,linestyle=dashed,linecolor=red,linewidth=0.08cm](105,22)(140,65)
+   \rput[tr](103,10){$p_{b_3}$}
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第11页，图2.4}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力 $p$}
+    \rput[tr](145,-5){$p^{0}$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){\rotatebox{90}{溶解气油比 $R_{so}$}}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](0,0){C1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](80,90){C2}
+   \ncarc[arcangle=35,linecolor=black,linewidth=0.08cm]{-}{C1}{C2}
+   \psline[linecolor=red,linewidth=0.08cm](80,90)(145,90)
+
+   \psline[linecolor=black,linestyle=dashed](80,20)(80,0)
+   \rput[tr](75,10){$p_{b}$}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](0,120){A1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](80,120){A12}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](80,0){B12}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](145,120){A2}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](145,0){B2}
+
+   \ncline[linecolor=black]{<->}{A1}{A12}
+   \ncput*{饱和态}
+   \ncline[linecolor=black]{<->}{A12}{A2}
+   \ncput*{非饱和态}
+   \ncline[linecolor=black,linestyle=dashed]{-}{A2}{B2}
+   \ncline[linecolor=black,linestyle=dashed]{-}{A12}{B12}
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第11页，图2.5}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力 $p$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){\rotatebox{90}{水相体积系数 $B_{w}$}}
+    \psline[linecolor=black,linewidth=0.08cm](30,90)(140,80)
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第12页，图2.6}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力 $p$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){\rotatebox{90}{油相体积系数 $B_{o}$}}
+
+    \psline[linecolor=black,linewidth=0.08cm](30,30)(90,120)
+    \psline[linecolor=black,linewidth=0.08cm](90,120)(140,115)
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第12页，图2.7}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(150,0)
+    \rput[tr](85,-5){压力 $p$}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,105){\rotatebox{90}{气相体积系数 $B_{g}$}}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](15,115){C1}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](130,20){C2}
+   \ncarc[arcangle=-45,linewidth=0.08cm]{-}{C1}{C2}
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第13页，图2.8}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.05cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+    \psline[linewidth=0.04cm]{->}(0,0)(180,0)
+%    \rput[tr](180,-5){水饱和度}
+    \psline[linewidth=0.04cm]{->}(0,0)(0,140)
+    \rput[tr](-5,120){\rotatebox{90}{相对渗透率}}
+
+   \pscurve[linecolor=red,showpoints=false,linewidth=0.08cm](30,115)(70,10)(115,0)
+   \rput[tr](51,90){$K_{ro}$}
+   \psline[linecolor=black,linestyle=dashed](30,115)(30,0)
+
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](30,0){C4}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](115,50){C5}
+   \ncarc[arcangle=-33,linewidth=0.08cm]{-}{C4}{C5}
+   \rput[tr](90,30){$K_{rw}$}
+   \psline[linecolor=black,linestyle=dashed](115,45)(115,0)
+
+   \rput[tr](-5,8){$0$}
+   \psline[linecolor=black](0,0)(0,-13)
+   \psline[linecolor=black](30,0)(30,-13)
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](0,-8){A11}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](30,-8){A12}
+   \ncline[linecolor=black]{-}{A11}{A12}
+   \ncput*{$S_{wc}$}
+
+   \rput[tr](85,-5){ 饱和度 $S_{w}$}
+
+
+   \psline[linecolor=black](115,0)(115,-13)
+   \psline[linecolor=black](145,0)(145,-13)
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](115,-8){A21}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](145,-8){A22}
+   \ncline[linecolor=black]{-}{A21}{A22}
+   \ncput*{$S_{nc}$}
+   \rput[tr](147,8){$1$}
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第14页，图2.9}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\begin{center}
+\psset{unit=0.07cm}
+\begin{pspicture} (0.0,-3)(200,200)
+
+   \psline[linecolor=black](40,40)(140,40)(90,120)(40,40)
+
+   \rput[tr](50,35){水(水相,$100\%$)}
+   \rput[tr](160,35){油(油相,$100\%$)}
+   \rput[tr](105,130){气(气相,$100\%$)}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](115,40){A11}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](70,89){A12}
+   \ncarc[arcangle=-33,linecolor=blue,linewidth=0.06cm]{-}{A11}{A12}
+
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](70,40){A21}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](109,90){A22}
+   \ncarc[arcangle=33,linecolor=red,linewidth=0.06cm]{-}{A21}{A22}
+   \rput[tr](145,100){$K_{ro} = 1\%$}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](50,56){A31}
+   \dotnode[dotstyle=+,dotscale=0.1 0.1](134,50){A32}
+   \ncarc[arcangle=33,linecolor=black,linewidth=0.06cm]{-}{A31}{A32}
+
+%   \rput[tr](55,50){$w$}
+   \rput[tr](60,50){{\scriptsize 水 }}
+%   \rput[tr](95,50){$w,o$}
+   \rput[tr](95,50){{\scriptsize 水,油}}
+%   \rput[tr](120,50){$o$}
+   \rput[tr](125,50){{\scriptsize 油 }}
+
+   %\rput[tr](75,75){$w,g$}
+   \rput[tr](75,75){{\scriptsize 水,气}}
+%   \rput[tr](100,70){{\scriptsize$w,o,g$}}
+   \rput[tr](99,71){{\scriptsize 水,油,气}}
+%   \rput[tr](115,75){$o,g$}
+     \rput[tr](115,75){{\scriptsize 油,气}}
+
+%   \rput[tr](90,100){$g$}
+   \rput[tr](90,100){{\scriptsize 气}}
+
+
+\end{pspicture}
+\end{center}
+\vskip 1.0cm
+\caption{第14页，图2.10}
+\end{figure}
+
+
+
+\begin{figure}
+  % Requires \usepackage{graphicx}
+\begin{center}
+\psset{xunit=1.1cm,yunit=1.1cm}
+\begin{pspicture}*(0,0)(7.5,7.5)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](1.5,6.5)(1.5,1)(7,1) %(7,6.5)(1.5,6.5)
+\dotnode[dotstyle=+,dotscale=1 1](1.5,6.5){Q1}
+\dotnode[dotstyle=+,dotscale=1 1](7,1){Q2}
+\dotnode[dotstyle=+,dotscale=1 1](7,6.5){Q3}
+\dotnode[dotstyle=+,dotscale=1 1](1.5,1){Q4}
+%\ncline[linecolor=blue,linestyle=dashed,nodesep=0.02cm,linewidth=0.1cm]{<->}{Q1}{Q3}%linestyle=dotted,
+\ncline[linecolor=blue,linewidth=0.02cm]{<->}{Q1}{Q3}%linestyle=dotted,
+\ncput*{$M_{\emph{\textbf{P}}}$}
+\ncline[linecolor=gray,linestyle=dashed,nodesep=0.02cm,linewidth=0.02cm]{<->}{Q2}{Q3}
+%\ncput*{$n$}
+
+\psline[linecolor=gray,linestyle=dashed,dotsep=0.1cm,linewidth=0.02cm](1.5,6)(6.5,1)
+%\psline[linecolor=blue,linestyle=dotted,dotsep=0.3cm,linewidth=0.08cm](1.5,6.1)(6.6,1)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.3cm,linewidth=0.08cm](1.5,6.1)(6.6,1)
+\psline[linecolor=gray,linestyle=dashed,dotsep=0.1cm,linewidth=0.02cm](1.5,6.5)(7,1)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.3cm,linewidth=0.08cm](1.5,6.5)(7,1)
+
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.3cm,linewidth=0.08cm](2.3,6.5)(7,1.8)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.3cm,linewidth=0.08cm](1.6,6.5)(7,1.1)
+\psline[linecolor=gray,linestyle=dashed,dotsep=0.1cm,linewidth=0.02cm](2.5,6.5)(7,2)
+
+\dotnode[linecolor=black,dotstyle=+,dotscale=1 1](6.5,1){L1}
+%\dotnode[linecolor=black,dotstyle=+,dotscale=1 1](6,2){L2}
+\dotnode[linecolor=black,dotstyle=+,dotscale=1 1](7,2){L3}
+%\ncline[linecolor=black,linestyle=dashed,nodesep=0.02cm,linewidth=0.02cm]{<->}{L1}{Q2} %linestyle=dashed,
+\ncarc[arcangle=-40,linecolor=black,linestyle=dashed,nodesep=0.02cm,linewidth=0.02cm]{<->}{L1}{Q2} %linestyle=dashed,
+\ncput*{$b_l$}
+\ncarc[arcangle=-50,linecolor=black,linestyle=dashed,nodesep=0.02cm,linewidth=0.02cm]{<->}{Q2}{L3}%,linestyle=dashed
+%\ncangle[angleA=90, angleB=-90]{L3}{Q2}
+\ncput*{$b_r$}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](3.5,4.5){A}
+\rput[tl](3.6,4.5){$\color{blue}{A_{i_1i_1}}$}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](3,4.5){B}
+\rput[tr](3,4.45){$\color{blue}{A_{i_1j_1}}$}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](3,5){C}
+\rput[bl](3,5.05){$\color{blue}{A_{i_3i_3}}$}
+
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](2.5,5){D}
+\rput[br](2.4,4.95){$\color{red}{A_{i_3 j_3}}$}
+
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.02cm, linewidth=0.05cm]{->}{A}{B}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.04cm, linewidth=0.05cm]{->}{B}{C}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.02cm, linewidth=0.05cm]{->}{C}{D}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](4.5,3.5){A1}
+\rput[bl](4.5,3.55){$\color{blue}{A_{i_2i_2}}$}
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](5.5,3.5){B1}
+\rput[bl](5.5,3.55){$\color{blue}{A_{i_2j_2}}$}
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](5.5,2.5){C1}
+\rput[br](5.5,2.59){$\color{blue}{A_{i_4i_4}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](6.5,2.5){D1}
+\rput[bl](6.55,2.5){$\color{red}{A_{i_4j_4}}$}
+
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.02cm, linewidth=0.05cm]{->}{A1}{B1}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.04cm, linewidth=0.05cm]{->}{B1}{C1}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.02cm, linewidth=0.05cm]{->}{C1}{D1}
+
+%\rput[cl](1.1,4.5){\rnode{I1}{$p^i_s$}}
+\dotnode[linecolor=black,dotstyle=+,dotscale=0.1 0.1](1.1,4.5){I1}
+\ncline[linecolor=black,linestyle=dashed,nodesep=0.05cm,linewidth=0.02cm]{->}{I1}{B}
+%\rput[cl](1.1,3.5){\rnode{I2}{$p^i_e$}}
+\dotnode[linecolor=black,dotstyle=+,dotscale=0.1 0.1](1.1,3.5){I2}
+\ncline[linecolor=black,linestyle=dashed,linewidth=0.02cm]{<->}{I1}{I2}
+\ncput*{\scriptsize{t-th}}
+
+\dotnode[dotstyle=+,dotscale=0.01 0.01](4,3.5){I3}
+\ncline[linecolor=black,linestyle=dashed,nodesep=0.09cm,linewidth=0.02cm]{->}{I2}{I3} %linestyle=dashed,
+%\dotnode[dotstyle=+,dotscale=0.01 0.01](5,2.5){C3}
+
+
+
+
+\rput[cl](6.5,6.95){\rnode{P2}{$M^\texttt{t}_u(\emph{\textbf{P}})$}}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.09cm,linewidth=0.02cm]{->}{P2}{D1}
+\rput[cl](2.5,6.95){\rnode{P1}{$M^\texttt{t}_l(\emph{\textbf{P}})$}}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.09cm,linewidth=0.02cm]{->}{P1}{D}
+\ncline[linecolor=red,linewidth=0.02cm]{<->}{P1}{P2} %linestyle=dashed,
+\ncput*{$\tilde{M}_{\emph{\textbf{P}}}$}%\ncput*{$L^i_P$}
+
+\rput[tr](4.4,1.5){$\emph{\textbf{A}}_{n\times n}$}
+%\ncline[nodesep=3pt]{A}{B}
+\end{pspicture}
+\end{center}
+%\vskip -1.5cm
+  \caption{ 第151页， 图 8.5 }\label{parallel_interpolation }
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\psset{xunit=0.8cm,yunit=0.8cm}
+\begin{pspicture}*(-0.8,-1)(20,10)
+
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](0,5)(0,0)(5.5,0)(5.5,5)(0,5)
+
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](0,4.6)(4.6,0)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](0,5)(5,0)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](0.6,5)(5.5,0.1)
+
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](0,4.8)(4.8,0)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](0,5)(5,0)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](0.4,5)(5.4,0)
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](1.5,3.5){a1}
+\rput[bl](1.8,3.6){$\color{blue}{\emph{\textbf{P}}^\texttt{T}_{l_1l_1}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](1.1,3.5){a2}
+\rput[bl](0.2,3.6){$\color{red}{\emph{\textbf{P}}^\texttt{T}_{l_1k_1}}$}
+\ncline[linecolor=red,linestyle=dashed, linewidth=0.02cm]{->}{a1}{a2}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](2.0,3.0){b1}
+\rput[bl](1.2,2.4){$\color{blue}{\emph{\textbf{P}}^\texttt{T}_{l_2l_2}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](2.6,3.0){b2}
+\rput[bl](2.9,2.4){$\color{red}{\emph{\textbf{P}}^\texttt{T}_{l_2,k_2}}$}
+\ncline[linecolor=red,linestyle=dashed, linewidth=0.02cm]{->}{b1}{b2}
+
+
+%\rput[cl](-0.2,3.5){\rnode{I1}{$r^{i}_s$}}
+\dotnode[linecolor=black,dotstyle=+,dotscale=0.1 0.1](-0.5,3.5){I1}
+\ncline[linecolor=black,linestyle=dashed,nodesep=0.05cm,linewidth=0.02cm]{->}{I1}{a2}
+%\rput[cl](-0.2,3.0){\rnode{I2}{$r^{i}_e$}}
+\dotnode[linecolor=black,dotstyle=+,dotscale=0.1 0.1](-0.5,3.0){I2}
+\dotnode[dotstyle=+,dotscale=0.01 0.01](1.6,3.0){i2}
+\ncline[linecolor=black,linestyle=dashed,nodesep=0.05cm,linewidth=0.02cm]{->}{I2}{i2}
+\ncline[linecolor=black,linestyle=dashed,linewidth=0.02cm]{<->}{I1}{I2}
+\ncput*{\scriptsize{t-th}}
+
+
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](6,5.5)(6,0)(11.5,0)(11.5,5.5)(6,5.5)
+
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](6,5.1)(11.1,0)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](6.6,5.5)(11.5,0.6)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](6,5.5)(11.5,0)
+
+
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](6,5.25)(11.25,0)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](6,5.5)(11.5,0)
+%\psline[linecolor=blue,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](6.1,5.5)(11.5,0.1)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](6.45,5.5)(11.5,0.45)
+
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](7,4.5){r1}
+\rput[bl](7.1,4.1){$\color{blue}{\emph{\textbf{A}}_{k_1k_1}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](6.6,4.5){r2}
+\rput[bl](5.98,4.1){$\color{red}{\emph{\textbf{A}}_{k_1m_1}}$}
+\ncline[linecolor=red,linestyle=dashed, linewidth=0.03cm]{->}{r1}{r2}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](8.5,3.0){l1}
+\rput[br](8.5,2.5){$\color{blue}{\emph{\textbf{A}}_{k_2k_2}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](9.1,3.0){l2}
+\rput[bl](9.1,2.5){$\color{red}{\emph{\textbf{A}}_{k_2m_2}}$}
+\ncline[linecolor=red,linestyle=dashed, linewidth=0.03cm]{->}{l1}{l2}
+
+
+% R -------------> A
+\psline[linecolor=black,linewidth=0.015cm]{->}(1.1,3.7)(1.1,4.5)(6.0,4.5) %linestyle=dashed,
+\psline[linecolor=black, linewidth=0.015cm]{->}(2.75,3.0)(6.0,3.0) %linestyle=dashed,
+
+%\rput[cl](6,5.5){\rnode{L11}{~}}
+%\rput[cr](11.5,5.5){\rnode{L22}{~}}
+\dotnode[dotstyle=+,dotscale=1 1](6,5.5){L11}
+\dotnode[dotstyle=+,dotscale=1 1](11.5,5.5){L22}
+\ncline[linecolor=blue,linewidth=0.02cm]{<->}{L11}{L22} %linestyle=dashed,
+\ncput*{$M_{\emph{\textbf{A}}}$}
+
+\rput[cr](6.6,6.2){\rnode{L1}{$M^\texttt{t}_l(\emph{\textbf{A}})$}}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.08cm,linewidth=0.02cm]{->}{L1}{r2}
+\rput[cl](9.1,6.2){\rnode{L2}{$M^\texttt{t}_u(\emph{\textbf{A}})$}}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.08cm,linewidth=0.02cm]{->}{L2}{l2}
+\ncline[linecolor=red,linewidth=0.02cm]{<->}{L1}{L2} %linestyle=dashed,
+\ncput*{$\tilde{M}_{\emph{\textbf{A}}}$}
+
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](12,5.5)(12,0)(17,0)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](17,0)(17,5.5)(12,5.5)
+
+
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](12,4.9)(16.9,0)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](12.4,5.5)(17,0.9)
+\psline[linecolor=gray,linestyle=dashed,linewidth=0.02cm](12,5.5)(17,0.5)
+
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](12,5.0)(17,0)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](12,5.5)(17,0.5)
+%\psline[linecolor=blue,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](12,5.4)(17,0.4)
+\psline[linecolor=gray,linestyle=dotted,dotsep=0.2cm,linewidth=0.06cm](12.25,5.5)(17,0.75)
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](13.5,4.0){m1}
+\rput[tl](13.7,3.9){$\color{blue}{\emph{\textbf{P}}_{m_1m_1}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](12.9,4.0){m2}
+\rput[tr](13.3,3.9){$\color{red}{\emph{\textbf{P}}_{m_1n_1}}$}
+\ncline[linecolor=red,linestyle=dashed, linewidth=0.03cm]{->}{m1}{m2}
+
+\dotnode[linecolor=blue,dotstyle=diamond*,dotscale=1.4 1.4](16,1.5){n1}
+\rput[br](15.9,1.3){$\color{blue}{\emph{\textbf{P}}_{m_2m_2}}$}
+\dotnode[linecolor=red,dotstyle=diamond*,dotscale=1.4 1.4](16.4,1.5){n2}
+\rput[bl](16.5,1.2){$\color{red}{\emph{\textbf{P}}_{m_2n_2}}$}
+\ncline[linecolor=red,linestyle=dashed, linewidth=0.03cm]{->}{n1}{n2}
+
+
+% A ----------> P
+\psline[linecolor=black, linewidth=0.015cm]{->}(6.6,4.3)(6.6,4.0)(12.0,4.0) %linestyle=dashed,
+\psline[linecolor=black, linewidth=0.015cm]{->}(9.25,3.0)(11,3.0)(11,1.5)(12.0,1.5) %linestyle=dashed,
+
+
+\rput[cl](12.9,6.2){\rnode{N1}{$M^\texttt{t}_l(\emph{\textbf{P}})$}}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.08cm,linewidth=0.02cm]{->}{N1}{m2}
+\rput[cl](16.4,6.2){\rnode{N2}{$M^\texttt{t}_u(\emph{\textbf{P}})$}}
+\ncline[linecolor=red,linestyle=dashed,nodesep=0.08cm,linewidth=0.02cm]{->}{N2}{n2}
+
+\ncline[linecolor=red,linewidth=0.02cm]{<->}{N1}{N2} %linestyle=dashed,
+\ncput*{$\tilde{M}_{\emph{\textbf{P}}}$}%\ncput*{$L^i_P$}
+
+%\rput[cl](12,5.5){\rnode{N11}{~}}
+%\rput[cr](17,5.5){\rnode{N22}{~}}
+\dotnode[dotstyle=+,dotscale=1 1](12,5.5){N11}
+\dotnode[dotstyle=+,dotscale=1 1](17,5.5){N22}
+\ncline[linecolor=blue,linewidth=0.02cm]{<->}{N11}{N22} %linestyle=dashed,
+\ncput*{$M_{\emph{\textbf{P}}}$}
+
+\rput[tr](3.3,0.8){$\emph{\textbf{P}}^\texttt{T}_{n_c \times n}$}
+\rput[tr](9.3,0.8){$\emph{\textbf{A}}_{n\times n}$}
+\rput[tr](15.3,0.8){$\emph{\textbf{P}}_{n\times n_c}$}
+\end{pspicture}
+\end{center}
+\caption{第151页，图8.6}
+\end{figure}
+
+\end{document}

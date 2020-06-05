@@ -1,0 +1,47 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX TS-program = xelatex
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage[slantfont,boldfont]{xeCJK}
+
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{flafter}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.6in]{geometry}
+%
+\usepackage[algo2e,ruled,linesnumbered,vlined]{algorithm2e}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{pst-plot}
+\usepackage{pst-node}
+\usepackage{pst-math}
+
+\pagestyle{plain}
+\begin{document}
+
+\begin{figure}[hp]
+    \centering
+\psset{xunit=1,yunit=8}
+\begin{pspicture}(0,-0.25)(190,1.25)
+  \psgrid[subgriddiv=0,%
+  	griddots=5,%
+  	gridlabels=0,%
+  	xunit=1,%
+  	yunit=0.1](1,0)(15,10)
+  \psaxes[linewidth=1.5pt,%
+  	ticksize=4pt,
+  	Ox=1,Dx=1,Dy=0.1]{-}(1,0)(15.5,1.08)
+%
+  \rput(8,-0.1){迭代步数}
+  \rput{90}(-0.2,0.5){误差下降率}
+%
+  \pscurve[showpoints=true,dotstyle=square,fillcolor=red,dotsize=5pt]{-}(1,0.57)(2,0.81)(3,0.87)(4,0.89)(5,0.90)(6,0.904)(7,0.908)(8,0.912)(9,0.916)(10,0.92)(11,0.924)(12,0.928)(13,0.932)(14,0.936)(15,0.94)
+  \pscurve[showpoints=true,dotstyle=diamond,fillcolor=blue,dotsize=5pt]{-}(1,0.405)(2,0.71)(3,0.85)(4,0.89)(5,0.90)(6,0.901)(7,0.902)(8,0.903)(9,0.904)(10,0.905)(11,0.906)(12,0.907)(13,0.908)(14,0.909)(15,0.91)
+\end{pspicture}
+\end{figure}
+
+\end{document}
