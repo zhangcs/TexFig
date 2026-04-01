@@ -1,0 +1,66 @@
+\documentclass[border=10pt]{ctexart} % 使用ctexart文档类
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+\begin{document}
+\pagestyle{empty} % 去除页码
+
+\begin{circuitikz}[
+    american,
+    thick,
+    scale=1.0,
+    every label/.style={font=\footnotesize}
+]
+
+% -------------------------- 1. 核心电路区（仅保留编号，无多余文字） --------------------------
+% 参考节点：定压外输终端
+\node[ground] (GND) at (0,0) {};
+
+% 管汇节点
+\node[circ] (nodeA) at (0,4) {};
+\node[circ] (nodeB) at (5,4) {};
+
+% 管线（电阻）
+\draw (GND) to[R, l_=$R_1$] (nodeA);
+\draw (GND) to[R, l^=$R_2$] (nodeB);
+\draw (nodeA) to[R, l^=$R_3$] (nodeB);
+
+% 生产井（电流源）
+\draw (nodeA) to[I, l_=$Q_1$, invert] (0,6) node[ground] {};
+\draw (nodeB) to[I, l^=$Q_2$, invert] (5,6) node[ground] {};
+
+% -------------------------- 2. 嵌入图内的图例（安全绘制，无嵌套冲突） --------------------------
+% 图例标题
+\node[font=\bfseries\footnotesize, anchor=west] at (-1.5, -1.2) {图 例：};
+
+% 定义图例起始坐标
+\coordinate (leg) at (-1.5, -1.8);
+
+% --- 第一列：元件符号说明 ---
+% R1
+\node[anchor=west, font=\footnotesize] at (leg) {$R_1$：};
+\node[anchor=west, font=\footnotesize] at ([xshift=3.2em]leg) {A区块外输总管};
+
+% R2
+\node[anchor=west, font=\footnotesize] at ([yshift=-1em]leg) {$R_2$：};
+\node[anchor=west, font=\footnotesize] at ([xshift=3.2em, yshift=-1em]leg) {B区块外输总管};
+
+% R3
+\node[anchor=west, font=\footnotesize] at ([yshift=-2em]leg) {$R_3$：};
+\node[anchor=west, font=\footnotesize] at ([xshift=3.2em, yshift=-2em]leg) {区块间互联管线};
+
+% Q1/Q2
+\node[anchor=west, font=\footnotesize] at ([yshift=-3em]leg) {$Q_1, Q_2$：};
+\node[anchor=west, font=\footnotesize] at ([xshift=3.2em, yshift=-3em]leg) {区块生产井组};
+
+% --- 第二列：核心类比关系 ---
+\coordinate (leg2) at (3, -1.8);
+
+\node[anchor=west, font=\footnotesize] at (leg2) {电压 $U$ $\leftrightarrow$ 压力 $\Delta P$};
+\node[anchor=west, font=\footnotesize] at ([yshift=-1em]leg2) {电流 $I$ $\leftrightarrow$ 流量 $Q$};
+\node[anchor=west, font=\footnotesize] at ([yshift=-2em]leg2) {电阻 $R$ $\leftrightarrow$ 流动阻力 $R_{\mathrm{flow}}$};
+\node[anchor=west, font=\footnotesize] at ([yshift=-3em]leg2) {接地 $\leftrightarrow$ 定压外输终端};
+
+\end{circuitikz}
+
+\end{document}
